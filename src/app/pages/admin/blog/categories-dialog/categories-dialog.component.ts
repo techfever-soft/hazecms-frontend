@@ -1,12 +1,12 @@
 import {
   BasicResponse,
   DataResponse,
-} from 'src/app/core/interfaces/responses.interface';
+} from 'src/app/core/models/interfaces/responses.interface';
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ClientApiService } from 'src/app/core/services/client-api.service';
-import { HazePostCategory } from 'src/app/core/interfaces/post.interface';
+import { HazePostCategory } from 'src/app/core/models/interfaces/post.interface';
 
 @Component({
   selector: 'app-categories-dialog',
@@ -24,7 +24,7 @@ export class CategoriesDialogComponent {
     private clientApiService: ClientApiService
   ) {
     this.categoryForm = this.fb.group({
-      name: [''],
+      name: ['', Validators.required],
     });
 
     this.loadCategories();

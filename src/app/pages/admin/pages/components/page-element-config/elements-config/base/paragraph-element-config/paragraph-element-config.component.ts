@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { BuilderElement } from 'src/app/core/interfaces/builder.interface';
+import { BuilderElement } from 'src/app/core/models/interfaces/builder.interface';
 import { BuilderService } from 'src/app/core/services/admin/builder.service';
 
 @Component({

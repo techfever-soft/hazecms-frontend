@@ -2,7 +2,7 @@ import { CdkDragDrop, DragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { BuilderElement } from 'src/app/core/interfaces/builder.interface';
+import { BuilderElement } from 'src/app/core/models/interfaces/builder.interface';
 import { BuilderService } from 'src/app/core/services/admin/builder.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatDrawer } from '@angular/material/sidenav';

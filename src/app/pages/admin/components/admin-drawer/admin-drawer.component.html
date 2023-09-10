@@ -1,17 +1,13 @@
 <mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    aria-label="Admin menu"
-    (click)="adminDrawer.toggle()"
-  >
-    <mat-icon>{{ adminDrawer.opened ? "close" : "menu" }}</mat-icon>
+  <button mat-icon-button aria-label="Admin menu" (click)="onToggleDrawer()">
+    <mat-icon>{{ isDrawerOpened ? "close" : "menu" }}</mat-icon>
   </button>
 
   <button mat-button routerLink="/admin">Admin panel</button>
 </mat-toolbar>
 
 <mat-drawer-container class="haze__drawer haze__drawer--with-double-toolbar">
-  <mat-drawer [opened]="false" mode="side" #adminDrawer="matDrawer">
+  <mat-drawer [opened]="isDrawerOpened" mode="side">
     <mat-nav-list>
       <a routerLink="/admin/dashboard" routerLinkActive="active" mat-list-item
         ><mat-icon matListItemIcon>dashboard</mat-icon> Dashboard</a

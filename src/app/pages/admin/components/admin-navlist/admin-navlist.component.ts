@@ -1,3 +1,4 @@
+import { AdminService } from 'src/app/core/services/admin/admin.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AdminNavlistComponent {
   public navlistShowed: boolean = false;
+
+  constructor(private adminService: AdminService) {
+    this.adminService.isMenuOpened.subscribe((menuOpened) => {
+      this.navlistShowed = menuOpened;
+    });
+  }
+
+  public toggleNavlist() {
+    this.adminService.setMenuOpened(!this.navlistShowed);
+  }
 }

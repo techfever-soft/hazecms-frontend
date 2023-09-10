@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
-import { BuilderElement } from 'src/app/core/interfaces/builder.interface';
+import { BuilderElement } from 'src/app/core/models/interfaces/builder.interface';
 import { BuilderService } from 'src/app/core/services/admin/builder.service';
 
 @Component({

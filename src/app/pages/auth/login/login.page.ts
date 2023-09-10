@@ -8,7 +8,7 @@ import {
 import {
   BasicResponse,
   DataResponse,
-} from 'src/app/core/interfaces/responses.interface';
+} from 'src/app/core/models/interfaces/responses.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Component } from '@angular/core';

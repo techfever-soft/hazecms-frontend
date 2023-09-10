@@ -1,9 +1,5 @@
 <div class="text-center">
-  <button
-    mat-button
-    (click)="navlistShowed = !navlistShowed"
-    class="haze__button w-100"
-  >
+  <button mat-button (click)="toggleNavlist()" class="haze__button w-100">
     <mat-icon>{{ navlistShowed ? "expand_less" : "expand_more" }}</mat-icon>
     {{ navlistShowed ? "Hide" : "Show admin menu" }}
   </button>

@@ -1,133 +1,150 @@
 <app-admin-drawer>
-    <div class="haze__page-header haze__page-header--with-card-below">
-      <div class="haze__page-header--title">
-        <h2 class="mat-h2">Edit a post</h2>
+  <div class="haze__page-header haze__page-header--with-card-below">
+    <div class="haze__page-header--title">
+      <h2 class="mat-h2">Edit a post</h2>
+    </div>
+
+    <app-breadcrumb type="button" [route]="writePostRoute"></app-breadcrumb>
+  </div>
+
+  <div class="haze__page-container haze__page-container--card-below">
+    <mat-card class="haze__card">
+      <app-flash-message
+        *ngIf="postResponse"
+        [type]="postResponse.type"
+        [message]="postResponse.message"
+      ></app-flash-message>
+
+      <div class="mt-25 mb-25" *ngIf="isPublishing">
+        <mat-spinner diameter="70" class="mx-auto"></mat-spinner>
       </div>
-  
-      <app-breadcrumb type="button" [route]="writePostRoute"></app-breadcrumb>
-    </div>
-  
-    <div class="haze__page-container haze__page-container--card-below">
-      <mat-card class="haze__card">
-        <app-flash-message
-          *ngIf="postResponse"
-          [type]="postResponse.type"
-          [message]="postResponse.message"
-        ></app-flash-message>
-  
-        <div class="mt-25 mb-25" *ngIf="isPublishing">
-          <mat-spinner diameter="70" class="mx-auto"></mat-spinner>
-        </div>
-  
-        <form
-          [formGroup]="writePostForm"
-          (submit)="onSavePost()"
-          *ngIf="!isPublishing"
+
+      <form
+        [formGroup]="writePostForm"
+        (submit)="onSavePost()"
+        *ngIf="!isPublishing"
+      >
+        <button
+          mat-button
+          class="haze__button w-100"
+          type="button"
+          routerLink="/admin/blog/"
         >
-          <div class="haze__flex-form haze__flex-form--column">
-            <mat-form-field>
-              <mat-label>Title</mat-label>
-              <input type="text" matInput formControlName="name" name="name" />
-            </mat-form-field>
-  
-            <mat-form-field>
-              <mat-label>Slug</mat-label>
-              <input
-                type="text"
-                pattern="[a-z0-9-]+"
-                matInput
-                formControlName="slug"
-                name="slug"
-              />
-              <mat-error *ngIf="writePostForm.get('slug')?.hasError('pattern')">
-                This field contains special characters
-              </mat-error>
-            </mat-form-field>
-  
-            <mat-form-field>
-              <mat-label>Category</mat-label>
-              <mat-select formControlName="categoryId">
-                <mat-option
-                  *ngFor="let category of categories"
-                  [value]="category.id"
-                >
-                  {{ category.name }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-  
-            <button
-              mat-raised-button
-              class="mb-15"
-              type="button"
-              color="primary"
-              (click)="onOpenEditCategoriesDialog()"
-            >
-              <mat-icon>edit</mat-icon> Edit categories
-            </button>
-  
-            <mat-form-field>
-              <mat-label>Tags</mat-label>
-              <mat-chip-grid #chipGrid [formControl]="tagsControl">
-                <mat-chip-row
-                  *ngFor="let tag of tags"
-                  (removed)="removeKeyword(tag)"
-                >
-                  {{tag}}
-                  <button matChipRemove>
-                    <mat-icon>cancel</mat-icon>
-                  </button>
-                </mat-chip-row>
-                <input
-                  name="tags"
-                  placeholder="New tag..."
-                  [matChipInputFor]="chipGrid"
-                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                  [matChipInputAddOnBlur]="true"
-                  (matChipInputTokenEnd)="add($event)"
-                />
-              </mat-chip-grid>
-            </mat-form-field>
-  
-            <div class="mb-25">
-              <div class="NgxEditor__Wrapper">
-                <ngx-editor-menu
-                  [editor]="editor"
-                  [toolbar]="toolbar"
-                ></ngx-editor-menu>
-                <ngx-editor
-                  [editor]="editor"
-                  formControlName="content"
-                ></ngx-editor>
-              </div>
-            </div>
-  
-            <div class="haze__slide-toggle mt-15 mb-15">
-              <div class="haze__slide-toggle--caption">
-                <mat-icon>edit_note</mat-icon>
-                <p class="mat-caption">Draft</p>
-              </div>
-              <mat-slide-toggle
-                formControlName="published"
-                color="primary"
-              ></mat-slide-toggle>
-              <div class="haze__slide-toggle--caption">
-                <mat-icon>public</mat-icon>
-                <p class="mat-caption">Published</p>
-              </div>
-            </div>
-  
-            <button
-              mat-raised-button
-              color="accent"
-              class="haze__button mx-auto"
-              type="submit"
-            >
-              <mat-icon>check_circle</mat-icon> Save post
-            </button>
+          <mat-icon>arrow_backward</mat-icon> Back
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          class="haze__button w-100"
+          type="button"
+          routerLink="/admin/blog/view/{{postId}}"
+        >
+          <mat-icon>visibility</mat-icon> View post
+        </button>
+
+        <div class="haze__slide-toggle mt-25 mb-15">
+          <div class="haze__slide-toggle--caption">
+            <mat-icon>edit_note</mat-icon>
+            <p class="mat-caption">Draft</p>
           </div>
-        </form>
-      </mat-card>
-    </div>
-  </app-admin-drawer>
-  
+          <mat-slide-toggle
+            formControlName="published"
+            color="primary"
+          ></mat-slide-toggle>
+          <div class="haze__slide-toggle--caption">
+            <mat-icon>public</mat-icon>
+            <p class="mat-caption">Published</p>
+          </div>
+        </div>
+
+        <div class="haze__flex-form haze__flex-form--column">
+          <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input type="text" matInput formControlName="name" name="name" />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Slug</mat-label>
+            <input
+              type="text"
+              pattern="[a-z0-9-]+"
+              matInput
+              formControlName="slug"
+              name="slug"
+            />
+            <mat-error *ngIf="writePostForm.get('slug')?.hasError('pattern')">
+              This field contains special characters
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="categoryId">
+              <mat-option
+                *ngFor="let category of categories"
+                [value]="category.id"
+              >
+                {{ category.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button
+            mat-raised-button
+            class="haze__button mb-15"
+            type="button"
+            color="primary"
+            (click)="onOpenEditCategoriesDialog()"
+          >
+            <mat-icon>edit</mat-icon> Edit categories
+          </button>
+
+          <mat-form-field>
+            <mat-label>Tags</mat-label>
+            <mat-chip-grid #chipGrid [formControl]="tagsControl">
+              <mat-chip-row
+                *ngFor="let tag of tags"
+                (removed)="removeKeyword(tag)"
+              >
+                {{tag}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+              <input
+                name="tags"
+                placeholder="New tag..."
+                [matChipInputFor]="chipGrid"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="true"
+                (matChipInputTokenEnd)="add($event)"
+              />
+            </mat-chip-grid>
+          </mat-form-field>
+
+          <div class="mb-25">
+            <div class="NgxEditor__Wrapper">
+              <ngx-editor-menu
+                [editor]="editor"
+                [toolbar]="toolbar"
+              ></ngx-editor-menu>
+              <ngx-editor
+                [editor]="editor"
+                formControlName="content"
+              ></ngx-editor>
+            </div>
+          </div>
+
+          <button
+            mat-raised-button
+            color="accent"
+            class="haze__button mx-auto"
+            type="submit"
+          >
+            <mat-icon>check_circle</mat-icon> Save post
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</app-admin-drawer>

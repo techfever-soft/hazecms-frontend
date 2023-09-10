@@ -7,6 +7,7 @@ import { CategoriesDialogComponent } from './categories-dialog/categories-dialog
 import { CommonModule } from '@angular/common';
 import { EditPage } from './edit/edit.page';
 import { MaterialModule } from 'src/app/material.module';
+import { MomentModule } from 'ngx-moment';
 import { NgModule } from '@angular/core';
 import { NgxEditorModule } from 'ngx-editor';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
@@ -32,6 +33,7 @@ import { WritePostPage } from './write-post/write-post.page';
     MaterialModule,
     NgxSkeletonLoaderModule,
     NgxEditorModule,
+    MomentModule
   ],
 })
 export class BlogModule {}

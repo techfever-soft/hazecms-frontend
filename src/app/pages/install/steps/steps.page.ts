@@ -3,7 +3,7 @@ import { Observable, map } from 'rxjs';
 
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
-import { HazeBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb.interface';
+import { HazeBreadcrumbItem } from 'src/app/core/models/interfaces/breadcrumb.interface';
 import { StepperOrientation } from '@angular/cdk/stepper';
 
 @Component({

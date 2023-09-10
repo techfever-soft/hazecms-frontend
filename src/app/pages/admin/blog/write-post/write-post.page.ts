@@ -1,7 +1,7 @@
 import {
   BasicResponse,
   DataResponse,
-} from 'src/app/core/interfaces/responses.interface';
+} from 'src/app/core/models/interfaces/responses.interface';
 import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { Editor, Toolbar } from 'ngx-editor';
 import {
@@ -14,8 +14,8 @@ import {
 import { CategoriesDialogComponent } from '../categories-dialog/categories-dialog.component';
 import { ClientApiService } from 'src/app/core/services/client-api.service';
 import { Component } from '@angular/core';
-import { HazeBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb.interface';
-import { HazePostCategory } from 'src/app/core/interfaces/post.interface';
+import { HazeBreadcrumbItem } from 'src/app/core/models/interfaces/breadcrumb.interface';
+import { HazePostCategory } from 'src/app/core/models/interfaces/post.interface';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialog } from '@angular/material/dialog';
 

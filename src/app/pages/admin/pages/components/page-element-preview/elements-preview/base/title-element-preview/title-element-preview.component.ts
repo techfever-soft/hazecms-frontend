@@ -1,7 +1,7 @@
 import {
   BuilderElement,
   BuilderElementContainer,
-} from 'src/app/core/interfaces/builder.interface';
+} from 'src/app/core/models/interfaces/builder.interface';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

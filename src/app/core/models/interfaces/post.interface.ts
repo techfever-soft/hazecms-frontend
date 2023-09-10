@@ -1,3 +1,5 @@
+import { SafeHtml } from "@angular/platform-browser";
+
 export interface HazePost {
   id: number | string;
   name: string;
@@ -5,8 +7,10 @@ export interface HazePost {
   categoryId: number | string;
   content: string;
   tags: string;
+  published: boolean;
   createdAt: Date | string;
   publishedAt: Date | string;
+  updatedAt: Date | string;
 }
 
 export interface HazePostCategory {

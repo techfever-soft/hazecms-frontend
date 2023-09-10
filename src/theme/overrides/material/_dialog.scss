@@ -1,0 +1,7 @@
+@mixin dialog() {
+    .haze__dialog {
+        .mat-mdc-dialog-actions {
+            justify-content: end;
+        }
+    }
+}

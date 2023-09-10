@@ -1,7 +1,7 @@
 import {
   BasicResponse,
   DataResponse,
-} from 'src/app/core/interfaces/responses.interface';
+} from 'src/app/core/models/interfaces/responses.interface';
 import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { Editor, Toolbar } from 'ngx-editor';
 import {
@@ -15,8 +15,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CategoriesDialogComponent } from '../categories-dialog/categories-dialog.component';
 import { ClientApiService } from 'src/app/core/services/client-api.service';
 import { Component } from '@angular/core';
-import { HazeBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb.interface';
-import { HazePostCategory } from 'src/app/core/interfaces/post.interface';
+import { HazeBreadcrumbItem } from 'src/app/core/models/interfaces/breadcrumb.interface';
+import { HazePostCategory } from 'src/app/core/models/interfaces/post.interface';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -103,9 +103,17 @@ export class EditPage {
         const post = response.data[0];
         console.log(post);
 
+        console.log(post);
+
         this.writePostForm.patchValue({
-          ...post,
+          name: post.name,
+          categoryId: post.categoryId,
+          content: post.content,
           tags: JSON.parse(post.tags),
+          published: post.published === 1 ? true : false,
+          createdAt: post.createdAt,
+          publishedAt: post.publishedAt,
+          updatedAt: post.updatedAt,
         });
 
         this.tags = JSON.parse(post.tags);
@@ -159,7 +167,6 @@ export class EditPage {
         const response = result as BasicResponse;
         this.postResponse = response;
 
-        this.writePostForm.reset();
         this.tags = [];
         this.isPublishing = false;
       })

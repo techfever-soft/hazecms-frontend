@@ -1,10 +1,10 @@
 import { ActivatedRoute } from '@angular/router';
 import { ClientApiService } from 'src/app/core/services/client-api.service';
 import { Component } from '@angular/core';
-import { DataResponse } from 'src/app/core/interfaces/responses.interface';
+import { DataResponse } from 'src/app/core/models/interfaces/responses.interface';
 import { DomSanitizer } from '@angular/platform-browser';
-import { HazeBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb.interface';
-import { HazePost } from 'src/app/core/interfaces/post.interface';
+import { HazeBreadcrumbItem } from 'src/app/core/models/interfaces/breadcrumb.interface';
+import { HazePost } from 'src/app/core/models/interfaces/post.interface';
 
 @Component({
   selector: 'app-view',
@@ -19,7 +19,7 @@ export class ViewPage {
     },
     {
       path: '/admin/blog/view',
-      label: 'View a post',
+      label: 'Preview a post',
     },
   ];
   public blogPost!: HazePost;
@@ -45,7 +45,8 @@ export class ViewPage {
             const foundPost: HazePost = response.data[0];
 
             this.blogPost = foundPost;
-            this.postContent = domSanitizer.bypassSecurityTrustHtml(
+            
+            this.postContent = this.domSanitizer.bypassSecurityTrustHtml(
               this.blogPost.content
             );
             this.postTags = JSON.parse(foundPost.tags);

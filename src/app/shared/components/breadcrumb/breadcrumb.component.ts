@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { HazeBreadcrumbItem } from 'src/app/core/interfaces/breadcrumb.interface';
+import { HazeBreadcrumbItem } from 'src/app/core/models/interfaces/breadcrumb.interface';
 
 @Component({
   selector: 'app-breadcrumb',

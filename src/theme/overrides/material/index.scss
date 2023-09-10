@@ -10,6 +10,7 @@
 @use "./stepper" as stepper;
 @use "./slide-toggle" as slide-toggle;
 @use "./tab-group" as tab-group;
+@use "./dialog" as dialog;
 
 @mixin material($theme) {
     @include core.core();
@@ -24,4 +25,5 @@
     @include stepper.stepper();
     @include slide-toggle.slide-toggle();
     @include tab-group.tab-group();
+    @include dialog.dialog();
 }

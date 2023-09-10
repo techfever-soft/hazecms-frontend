@@ -1,12 +1,12 @@
 import {
   BasicResponse,
   DataResponse,
-} from 'src/app/core/interfaces/responses.interface';
+} from 'src/app/core/models/interfaces/responses.interface';
 
 import { CategoriesDialogComponent } from './categories-dialog/categories-dialog.component';
 import { ClientApiService } from 'src/app/core/services/client-api.service';
 import { Component } from '@angular/core';
-import { HazePost } from 'src/app/core/interfaces/post.interface';
+import { HazePost } from 'src/app/core/models/interfaces/post.interface';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -48,7 +48,7 @@ export class BlogPage {
 
   public onDeletePost(postId: string | number) {
     this.clientApiService
-      .getRequest('posts/deleteOne/' + postId, {})
+      .deleteRequest('posts/deleteOne/' + postId)
       .then((response) => {
         const result = response as BasicResponse;
 
@@ -62,6 +62,6 @@ export class BlogPage {
   }
 
   public onOpenCategoriesDialog() {
-    this.matDialog.open(CategoriesDialogComponent)
+    this.matDialog.open(CategoriesDialogComponent);
   }
 }

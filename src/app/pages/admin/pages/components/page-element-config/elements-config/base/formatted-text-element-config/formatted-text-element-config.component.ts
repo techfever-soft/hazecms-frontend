@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { BuilderElement } from 'src/app/core/interfaces/builder.interface';
+import { BuilderElement } from 'src/app/core/models/interfaces/builder.interface';
 
 @Component({
   selector: 'app-formatted-text-element-config',

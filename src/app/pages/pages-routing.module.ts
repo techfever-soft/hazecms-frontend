@@ -1,8 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomePage } from './home/home.page';
-import { InstallPage } from './install/install.page';
-import { LoginPage } from './auth/login/login.page';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [

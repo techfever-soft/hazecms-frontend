@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { BasicStatus } from 'src/app/core/interfaces/status.interface';
+import { BasicResponse } from 'src/app/core/models/interfaces/responses.interface';
 import { FormGroup } from '@angular/forms';
 import { ServerApiService } from 'src/app/core/services/server-api.service';
 
@@ -11,7 +11,7 @@ import { ServerApiService } from 'src/app/core/services/server-api.service';
 })
 export class InstallActivationComponent {
   @Input('form') public activationForm!: FormGroup;
-  public activationStatus!: BasicStatus | null;
+  public activationStatus!: BasicResponse | null;
   public isChecking: boolean = false;
 
   constructor(private serverApiService: ServerApiService) {}
@@ -32,7 +32,7 @@ export class InstallActivationComponent {
       .then((res) => {
         console.log(res);
 
-        this.activationStatus = res as BasicStatus;
+        this.activationStatus = res as BasicResponse;
 
         this.activationForm.get('apiKeyEnabled')?.patchValue(true);
 
@@ -41,7 +41,7 @@ export class InstallActivationComponent {
       .catch((e) => {
         console.log(e);
 
-        this.activationStatus = e as BasicStatus;
+        this.activationStatus = e as BasicResponse;
 
         this.isChecking = false;
       });

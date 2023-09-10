@@ -17,6 +17,7 @@
           align-items: center;
           justify-content: center;
         "
+        class="mt-25"
       >
         <button
           routerLink="/admin/blog/write"
@@ -28,10 +29,10 @@
         </button>
         <button
           mat-button
-          class="haze__button haze__button--column"
+          class="haze__button mt-15 haze__button--column"
           (click)="onOpenCategoriesDialog()"
         >
-          <mat-icon>edit</mat-icon> Edit categories
+          <mat-icon>category</mat-icon> Edit categories
         </button>
       </div>
 
@@ -111,7 +112,7 @@
           <div *ngFor="let post of postsList; let last = last">
             <mat-list-item class="haze__list-item">
               <div matListItemTitle>{{ post.name }}</div>
-              <div matListItemLine>{{ post.createdAt }}</div>
+              <div matListItemLine>{{ post.createdAt | amTimeAgo }}</div>
               <div matListItemLine class="haze__list-item--actions">
                 <button
                   mat-button

@@ -1,7 +1,7 @@
 <app-admin-drawer>
   <div class="haze__page-header haze__page-header--with-card-below">
     <div class="haze__page-header--title">
-      <h2 class="mat-h2">View a post</h2>
+      <h2 class="mat-h2">Preview a post</h2>
     </div>
 
     <app-breadcrumb type="button" [route]="viewPostRoute"></app-breadcrumb>
@@ -23,15 +23,34 @@
       </button>
 
       <div *ngIf="blogPost">
-        <p class="mat-caption">Created at {{ blogPost.createdAt | date }}</p>
+        <h4 class="mat-h4">
+          Status : {{ blogPost.published ? "Published" : "Not published" }}
+        </h4>
+
         <p class="mat-caption">
-          Published at {{ blogPost.publishedAt | date }}
+          Created at {{ blogPost.createdAt | amDateFormat: 'MM/DD/YY [at] HH:mm'
+          }}
         </p>
-        <h3 class="mat-h3">{{ blogPost.name }}</h3>
-        <p class="mat-p" [innerHTML]="postContent"></p>
+
+        <p class="mat-caption">
+          Published at {{ blogPost.publishedAt | amDateFormat: 'MM/DD/YY [at]
+          HH:mm' }}
+        </p>
+
+        <p class="mat-caption">
+          Edited at {{ blogPost.updatedAt | amDateFormat: 'MM/DD/YY [at] HH:mm'
+          }}
+        </p>
+
+        <p class="mat-p">Tags :</p>
         <mat-chip-listbox>
           <mat-chip *ngFor="let tag of postTags"> {{ tag }} </mat-chip>
         </mat-chip-listbox>
+
+        <h3 class="mat-h3">Title : {{ blogPost.name }}</h3>
+
+        <p class="mat-p">Content :</p>
+        <span [innerHTML]="postContent"></span>
       </div>
     </mat-card>
   </div>

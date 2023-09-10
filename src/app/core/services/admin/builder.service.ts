@@ -3,13 +3,13 @@ import { BehaviorSubject, Observable, firstValueFrom, of } from 'rxjs';
 import {
   BuilderElement,
   BuilderElementContainer,
-} from '../../interfaces/builder.interface';
+} from '../../models/interfaces/builder.interface';
 
 import { Injectable } from '@angular/core';
 import { v4 as uuid } from 'uuid';
 
 /**
- * Temporary version, was copied from old version
+ * NOTE: Temporary version, was copied from old version
  */
 
 @Injectable({

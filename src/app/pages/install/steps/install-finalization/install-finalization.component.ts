@@ -2,9 +2,9 @@ import { Component, Input } from '@angular/core';
 import {
   HazeAppConfig,
   HazeAppConfigAdmin,
-} from 'src/app/core/interfaces/app.interface';
+} from 'src/app/core/models/interfaces/app.interface';
 
-import { BasicStatus } from 'src/app/core/interfaces/status.interface';
+import { BasicResponse } from 'src/app/core/models/interfaces/responses.interface';
 import { ClientApiService } from 'src/app/core/services/client-api.service';
 import { FormGroup } from '@angular/forms';
 
@@ -17,7 +17,7 @@ export class InstallFinalizationComponent {
   @Input('activation') activationForm!: FormGroup;
   @Input('database') databaseForm!: FormGroup;
   @Input('config') configForm!: FormGroup;
-  public activationStatus!: BasicStatus;
+  public activationStatus!: BasicResponse;
   public isInstalling: boolean = false;
 
   public removeFrontendInstallCode = `
@@ -130,12 +130,12 @@ export class InstallFinalizationComponent {
         .postRequest(requestEndpoint, installAppForm)
         .then((res) => {
           console.log(res);
-          this.activationStatus = res as BasicStatus;
+          this.activationStatus = res as BasicResponse;
           this.isInstalling = false;
         })
         .catch((e) => {
           console.log(e);
-          this.activationStatus = e as BasicStatus;
+          this.activationStatus = e as BasicResponse;
           this.isInstalling = false;
         });
     }, 1500);

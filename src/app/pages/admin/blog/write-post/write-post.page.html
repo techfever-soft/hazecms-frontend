@@ -24,6 +24,30 @@
         (submit)="onSavePost()"
         *ngIf="!isPublishing"
       >
+        <button
+          mat-button
+          class="haze__button w-100"
+          type="button"
+          routerLink="/admin/blog/"
+        >
+          <mat-icon>arrow_backward</mat-icon> Back
+        </button>
+
+        <div class="haze__slide-toggle mt-15 mb-15">
+          <div class="haze__slide-toggle--caption">
+            <mat-icon>edit_note</mat-icon>
+            <p class="mat-caption">Draft</p>
+          </div>
+          <mat-slide-toggle
+            formControlName="published"
+            color="primary"
+          ></mat-slide-toggle>
+          <div class="haze__slide-toggle--caption">
+            <mat-icon>public</mat-icon>
+            <p class="mat-caption">Published</p>
+          </div>
+        </div>
+
         <div class="haze__flex-form haze__flex-form--column mt-15">
           <mat-form-field>
             <mat-label>Title</mat-label>
@@ -99,21 +123,6 @@
                 [editor]="editor"
                 formControlName="content"
               ></ngx-editor>
-            </div>
-          </div>
-
-          <div class="haze__slide-toggle mt-15 mb-15">
-            <div class="haze__slide-toggle--caption">
-              <mat-icon>edit_note</mat-icon>
-              <p class="mat-caption">Draft</p>
-            </div>
-            <mat-slide-toggle
-              formControlName="published"
-              color="primary"
-            ></mat-slide-toggle>
-            <div class="haze__slide-toggle--caption">
-              <mat-icon>public</mat-icon>
-              <p class="mat-caption">Published</p>
             </div>
           </div>
 
