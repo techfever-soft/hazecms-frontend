@@ -1,0 +1,17 @@
+<span *ngIf="element.config">
+  <span *ngIf="element.config['type'] === 'h1'">
+    <h1 class="mat-h1">{{ element.config["content"] }}</h1>
+  </span>
+  <span *ngIf="element.config['type'] === 'h2'">
+    <h2 class="mat-h2">{{ element.config["content"] }}</h2>
+  </span>
+  <span *ngIf="element.config['type'] === 'h3'">
+    <h3 class="mat-h3">{{ element.config["content"] }}</h3>
+  </span>
+  <span *ngIf="element.config['type'] === 'h4'">
+    <h4 class="mat-h4">{{ element.config["content"] }}</h4>
+  </span>
+  <span *ngIf="element.config['type'] === 'h5'">
+    <h5 class="mat-h5">{{ element.config["content"] }}</h5>
+  </span>
+</span>

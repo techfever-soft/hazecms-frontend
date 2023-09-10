@@ -1,0 +1,58 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@include mat.core();
+
+@mixin sidenav($theme) {
+    $color-config: mat.get-color-config($theme);
+    $typography: mat.define-typography-config();
+    $primary-palette: mat.get-color-from-palette($color-config, "primary");
+    $accent-palette: mat.get-color-from-palette($color-config, "accent");
+    $warn: mat.get-color-from-palette($color-config, "warn");
+    $background: mat.get-color-from-palette($color-config, "background");
+    $foreground: mat.get-color-from-palette($color-config, "foreground");
+
+    mat-drawer-container.haze__drawer {
+        height: 100%;
+        &.haze__drawer--with-toolbar {
+            height: calc(100% - 64px);
+        }
+        &.haze__drawer--with-double-toolbar {
+            height: calc(100% - 128px);
+        }
+        .mat-drawer {
+            .mat-mdc-list-base {
+                padding: 0;
+            }
+            @media screen and (max-width: 700px) {
+                mat-nav-list {
+                    .mdc-list-item {
+                        padding-right: 0;
+                    }
+                    mat-icon {
+                        margin-left: 16px;
+                        margin-right: 16px;
+                    }
+                    .mdc-list-item__content {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .mat-mdc-list-item.active {
+        background: mat.get-color-from-palette($primary-palette);
+
+        &:hover {
+            background: lighten(mat.get-color-from-palette($primary-palette), 10%);
+            .mdc-list-item__primary-text,
+            .mat-mdc-list-item-icon {
+                color: #fff;
+            }
+        }
+        .mdc-list-item__primary-text,
+        .mat-mdc-list-item-icon {
+            color: #fff;
+        }
+    }
+}

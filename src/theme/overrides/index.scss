@@ -1,0 +1,5 @@
+@use "./material/index.scss" as material;
+
+@mixin overrides($theme) {
+    @include material.material($theme);
+}

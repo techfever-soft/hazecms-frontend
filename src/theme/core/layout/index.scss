@@ -1,0 +1,7 @@
+@use "./container" as container;
+@use "./form" as form;
+
+@mixin layout() {
+    @include container.container();
+    @include form.form();
+}

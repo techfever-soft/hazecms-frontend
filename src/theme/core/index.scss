@@ -1,0 +1,11 @@
+@use "./base/index.scss" as base;
+@use "./components/index.scss" as components;
+@use "./layout/index.scss" as layout;
+@use "./utilities/index.scss" as utilities;
+
+@mixin core($theme) {
+    @include base.base();
+    @include components.components($theme);
+    @include layout.layout();
+    @include utilities.utilities();
+}

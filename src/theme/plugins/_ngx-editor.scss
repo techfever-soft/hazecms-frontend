@@ -1,0 +1,11 @@
+@mixin ngx-editor() {
+    .NgxEditor__Wrapper {
+        ngx-editor-menu {
+        }
+        ngx-editor {
+            .NgxEditor__Content {
+                min-height: 100px;
+            }
+        }
+    }
+}

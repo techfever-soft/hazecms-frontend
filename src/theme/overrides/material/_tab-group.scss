@@ -1,0 +1,22 @@
+@mixin tab-group() {
+    .mat-mdc-tab-group.haze__tab-group {
+        .mat-mdc-tab {
+            height: auto;
+            .mdc-tab__content {
+                padding: 10px;
+                .mdc-tab__text-label {
+                    display: flex;
+                    flex-direction: column;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    mat-icon {
+                        height: 30px;
+                        width: 30px;
+                        font-size: 30px;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

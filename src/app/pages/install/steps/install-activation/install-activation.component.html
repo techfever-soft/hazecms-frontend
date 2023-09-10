@@ -1,0 +1,64 @@
+<!-- <form [formGroup]="activationForm" (submit)="onSubmitKey()">
+  <app-flash-message
+    *ngIf="activationStatus"
+    [message]="activationStatus.message"
+    [type]="activationStatus.type"
+  ></app-flash-message>
+
+  <span *ngIf="!isChecking">
+    <div class="text-center">
+      <mat-form-field class="w-100">
+        <mat-label>Your API key</mat-label>
+        <input matInput type="text" formControlName="apiKey" />
+        <button mat-icon-button matIconSuffix type="button">
+          <mat-icon>visibility</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="text-center">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="activationForm.get('apiKey')?.invalid"
+        class="haze__button"
+      >
+        <mat-icon>refresh</mat-icon> Activate your key
+      </button>
+    </div>
+
+    <div class="text-center mt-15">
+      <a
+        class="haze__button"
+        href="//hazecms.com"
+        target="_blank"
+        mat-button
+        type="button"
+      >
+        <mat-icon>open_in_new</mat-icon> No API key ?
+      </a>
+    </div>
+  </span>
+
+  <div *ngIf="isChecking" class="mt-25 mb-25">
+    <mat-spinner diameter="50" class="mx-auto"></mat-spinner>
+    <p class="mat-caption text-center">Checking your key...</p>
+  </div>
+</form> -->
+
+<div class="text-center">
+  <h2 class="mat-h2">Key activation is not available for the alpha version</h2>
+  <p class="mat-p">You can skip the step</p>
+</div>
+
+<div class="haze__stepper-actions">
+  <div></div>
+  <span class="spacer"></span>
+  <div>
+    <!-- <button mat-button matStepperNext [disabled]="activationForm.invalid"> -->
+    <button mat-raised-button color="primary" matStepperNext>
+      <mat-icon>arrow_forward</mat-icon> Next step
+    </button>
+  </div>
+</div>

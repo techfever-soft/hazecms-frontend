@@ -1,0 +1,38 @@
+<app-admin-drawer>
+  <div class="haze__page-header haze__page-header--with-card-below">
+    <div class="haze__page-header--title">
+      <h2 class="mat-h2">View a post</h2>
+    </div>
+
+    <app-breadcrumb type="button" [route]="viewPostRoute"></app-breadcrumb>
+  </div>
+
+  <div class="haze__page-container haze__page-container--card-below">
+    <mat-card class="haze__card">
+      <button mat-button routerLink="/admin/blog" class="haze__button">
+        <mat-icon>arrow_backward</mat-icon> Back
+      </button>
+      <button
+        *ngIf="blogPost"
+        mat-raised-button
+        color="primary"
+        class="haze__button"
+        routerLink="/admin/blog/edit/{{ blogPost.id }}"
+      >
+        <mat-icon>edit</mat-icon> Edit post
+      </button>
+
+      <div *ngIf="blogPost">
+        <p class="mat-caption">Created at {{ blogPost.createdAt | date }}</p>
+        <p class="mat-caption">
+          Published at {{ blogPost.publishedAt | date }}
+        </p>
+        <h3 class="mat-h3">{{ blogPost.name }}</h3>
+        <p class="mat-p" [innerHTML]="postContent"></p>
+        <mat-chip-listbox>
+          <mat-chip *ngFor="let tag of postTags"> {{ tag }} </mat-chip>
+        </mat-chip-listbox>
+      </div>
+    </mat-card>
+  </div>
+</app-admin-drawer>

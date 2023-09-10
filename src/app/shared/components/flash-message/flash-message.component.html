@@ -1,0 +1,20 @@
+<div class="haze__flash {{ type }} mb-25" *ngIf="isVisible">
+  <span *ngIf="type === 'error'">
+    <div class="content">
+      <div><mat-icon>error</mat-icon></div>
+      <div>{{ message }}</div>
+    </div>
+  </span>
+  <span *ngIf="type === 'success'">
+    <div class="content">
+      <div><mat-icon>check_circle</mat-icon></div>
+      <div>{{ message }}</div>
+    </div>
+  </span>
+
+  <span style="flex: 1"></span>
+
+  <button mat-icon-button type="button" (click)="remove()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

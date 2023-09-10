@@ -1,0 +1,12 @@
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+@mixin swiper() {
+    .swiper-button-prev,
+    .swiper-button-next {
+        &::after {
+            display: none;
+        }
+    }
+}

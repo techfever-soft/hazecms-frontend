@@ -1,0 +1,69 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@include mat.core();
+
+@mixin list($theme) {
+    $color-config: mat.get-color-config($theme);
+    $typography: mat.define-typography-config();
+    $primary-palette: mat.get-color-from-palette($color-config, "primary");
+    $accent-palette: mat.get-color-from-palette($color-config, "accent");
+    $warn: mat.get-color-from-palette($color-config, "warn");
+    $background: mat.get-color-from-palette($color-config, "background");
+    $foreground: mat.get-color-from-palette($color-config, "foreground");
+    
+    
+    .haze__list.mat-mdc-list {
+        .haze__list-item.mat-mdc-list-item {
+            height: auto;
+            padding: 10px 0;
+            .mdc-list-item__primary-text {
+                text-wrap: wrap;
+            }
+            .haze__list-item--actions {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                padding: 0;
+                margin-top: 10px;
+                overflow-x: auto;
+                overflow-y: hidden;
+                button {
+                    display: flex;
+                    align-items: center;
+                    text-wrap: nowrap;
+                    min-width: auto;
+                }
+            }
+        }
+    }
+
+    .haze__navlist-grid.mat-mdc-list-base {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        &.haze__navlist-grid--centered {
+            justify-content: center;
+        }
+        .haze__navlist-grid--item {
+            height: auto;
+            min-width: 125px;
+            max-width: fit-content;
+            @media screen and (max-width: 599.98px) {
+                max-width: 100%;
+            }
+            &.active {
+                background: mat.get-color-from-palette($primary-palette);
+            }
+            .mdc-list-item__content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 15px;
+                text-align: center;
+                .haze__navlist-grid--item__content {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

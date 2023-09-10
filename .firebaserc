@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "haze-cms": {
+      "hosting": {
+        "frontend": [
+          "haze-cms"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "haze-cms"
+  }
+}

@@ -1,0 +1,27 @@
+@use "./core" as core;
+@use "./sidenav" as sidenav;
+@use "./card" as card;
+@use "./list" as list;
+@use "./icon" as icon;
+@use "./toolbar" as toolbar;
+@use "./typography" as typography;
+@use "./button" as button;
+@use "./menu" as menu;
+@use "./stepper" as stepper;
+@use "./slide-toggle" as slide-toggle;
+@use "./tab-group" as tab-group;
+
+@mixin material($theme) {
+    @include core.core();
+    @include sidenav.sidenav($theme);
+    @include card.card();
+    @include list.list($theme);
+    @include icon.icon();
+    @include toolbar.toolbar();
+    @include typography.typography($theme);
+    @include button.button();
+    @include menu.menu();
+    @include stepper.stepper();
+    @include slide-toggle.slide-toggle();
+    @include tab-group.tab-group();
+}

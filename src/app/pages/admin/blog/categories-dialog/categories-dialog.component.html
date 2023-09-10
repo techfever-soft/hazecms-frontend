@@ -1,0 +1,54 @@
+<div matDialogTitle>Edit posts categories</div>
+
+<div matDialogContent>
+  <div class="text-center">
+    <form [formGroup]="categoryForm" (submit)="onSubmit()">
+      <mat-form-field class="w-100">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" />
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="haze__button"
+        [disabled]="!categoriesLoaded"
+      >
+        <mat-icon>add</mat-icon> Add this category
+      </button>
+    </form>
+  </div>
+
+  <div class="mt-15 mb-15">
+    <mat-divider></mat-divider>
+  </div>
+
+  <app-flash-message
+    *ngIf="categoriesStatus"
+    [type]="categoriesStatus.type"
+    [message]="categoriesStatus.message"
+  ></app-flash-message>
+
+  <mat-list class="haze__list" *ngIf="categories.length">
+    <div *ngFor="let category of categories; let last = last">
+      <mat-list-item class="haze__list-item">
+        <div matListItemTitle>{{ category.name }}</div>
+        <div matListItemMeta>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="onDeleteCategory(category.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+      <mat-divider *ngIf="!last"></mat-divider>
+    </div>
+  </mat-list>
+</div>
+
+<div matDialogActions>
+  <button mat-button matDialogClose><mat-icon>close</mat-icon> Cancel</button>
+</div>

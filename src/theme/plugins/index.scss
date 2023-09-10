@@ -1,0 +1,9 @@
+@use "./highlightjs" as highlightjs;
+@use "./ngx-editor" as ngx-editor;
+@use "./swiper" as swiper;
+
+@mixin plugins() {
+    @include highlightjs.highlightjs();
+    @include ngx-editor.ngx-editor();
+    @include swiper.swiper();
+}

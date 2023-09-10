@@ -1,0 +1,42 @@
+<p class="mat-p text-center">
+  {{ allSelectedElements.length }} elements selected
+</p>
+
+<div style="display: flex; flex-direction: column">
+  <div class="text-center">
+    <button
+      mat-raised-button
+      color="warn"
+      [disabled]="!allSelectedElements.length"
+      (click)="onClearSelectedElements()"
+    >
+      <mat-icon>close</mat-icon> Cancel selection
+    </button>
+  </div>
+  <div class="text-center mt-15">
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="onAddSelectedElements()"
+      [disabled]="!allSelectedElements.length"
+    >
+      <mat-icon>add</mat-icon> Add selection
+    </button>
+  </div>
+</div>
+
+<div class="mt-25">
+  <mat-divider></mat-divider>
+</div>
+
+<div style="padding: 15px">
+  <h3 class="mat-h3">Base elements</h3>
+
+  <app-base-element></app-base-element>
+
+  <mat-divider></mat-divider>
+
+  <h3 class="mat-h3">Container elements</h3>
+
+  <app-container-element></app-container-element>
+</div>

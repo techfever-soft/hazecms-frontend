@@ -1,0 +1,30 @@
+<mat-accordion>
+  <ng-container *ngFor="let element of elements">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ element.label }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div *ngIf="element.type == 'container'">
+        <button
+          mat-raised-button
+          [disabled]="!selectedElements.length"
+          (click)="onAddNestedElement(element)"
+        >
+          Add nested element
+        </button>
+        <mat-error *ngIf="!selectedElements.length"
+          >Select an element first</mat-error
+        >
+
+        <app-page-nested-element
+          [elements]="element.nestedElements"
+        ></app-page-nested-element>
+      </div>
+
+      <app-page-element-config [element]="element"></app-page-element-config>
+    </mat-expansion-panel>
+  </ng-container>
+</mat-accordion>

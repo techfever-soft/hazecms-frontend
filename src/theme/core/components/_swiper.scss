@@ -1,0 +1,74 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@include mat.core();
+
+@mixin swiper($theme) {
+    $color-config: mat.get-color-config($theme);
+    $typography: mat.define-typography-config();
+    $primary-palette: mat.get-color-from-palette($color-config, "primary");
+    $accent-palette: mat.get-color-from-palette($color-config, "accent");
+    $warn: mat.get-color-from-palette($color-config, "warn");
+    $background: mat.get-color-from-palette($color-config, "background");
+    $foreground: mat.get-color-from-palette($color-config, "foreground");
+
+    .haze__swiper {
+        position: relative;
+        swiper {
+            cursor: move;
+            .swiper-wrapper {
+                padding: 25px 0;
+                a {
+                    display: block;
+                    text-decoration: none;
+                    color: #fff;
+                }
+                img {
+                    width: 100%;
+                }
+                .selector-slide {
+                    width: 150px !important;
+                    &.disabled {
+                        pointer-events: none;
+                        opacity: 0.5;
+                    }
+                    mat-card {
+                        padding: 0 !important;
+                    }
+                    .selector {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        padding: 5px;
+                    }
+                    .selector-slide__cover {
+                        width: 150px;
+                        height: 150px;
+                        background: mat.get-color-from-palette($accent-palette);
+                        .icon {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            height: 100%;
+                            justify-content: center;
+                            color: #000;
+                        }
+                    }
+                    .selector-slide__content {
+                        padding: 15px;
+                        color: #000;
+                    }
+                }
+            }
+        }
+        .haze__swiper-nav {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            top: 50%;
+            position: absolute;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<div
+  class="haze__breadcrumb haze__breadcrumb--button"
+  *ngIf="type === 'button'"
+>
+  <ul>
+    <span *ngFor="let item of route; let last = last">
+      <li>
+        <a
+          mat-button
+          [routerLink]="item.path"
+          routerLinkActive="activeLink"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ item.label }}</a
+        >
+      </li>
+      <span *ngIf="!last"><mat-icon>keyboard_arrow_right</mat-icon></span>
+    </span>
+  </ul>
+  <!-- <ul>
+    <li><a mat-button routerLink="/">Blog</a></li>
+    <span><mat-icon>keyboard_arrow_right</mat-icon></span>
+    <li>Write a post</li>
+  </ul> -->
+</div>
+
+<div class="haze__breadcrumb haze__breadcrumb--text" *ngIf="type === 'text'">
+  <ul>
+    <li>Blog</li>
+    <span><mat-icon>keyboard_arrow_right</mat-icon></span>
+    <li>Write a post</li>
+  </ul>
+</div>

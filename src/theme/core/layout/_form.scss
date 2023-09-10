@@ -1,0 +1,62 @@
+@mixin form() {
+    .haze__fieldset {
+        border-radius: 10px;
+        border: 1px solid var(--mdc-filled-text-field-label-text-color);
+        legend {
+            color: var(--mdc-filled-text-field-label-text-color);
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            font-weight: bold;
+            mat-icon {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .haze__form-field-with--icon-button {
+        display: flex;
+        flex-direction: row;
+        &.haze__form-field-with--icon-button--centerize {
+            justify-content: center;
+        }
+        button.mat-mdc-icon-button {
+            margin-top: 5px;
+        }
+    }
+
+    .haze__flex-form {
+        display: flex;
+        @media screen and (max-width: 599.98px) {
+            flex-direction: column;
+        }
+        &.haze__flex-form--column {
+            flex-direction: column;
+        }
+        &.haze__flex-form--row-wrap {
+            mat-form-field:nth-child(1) {
+                margin-right: 10px;
+                @media screen and (max-width: 599.98px) {
+                    margin: 0;
+                }
+            }
+            mat-form-field:nth-child(2) {
+                margin-left: 10px;
+                @media screen and (max-width: 599.98px) {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .haze__flex-actions {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        @media screen and (max-width: 599.98px) {
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

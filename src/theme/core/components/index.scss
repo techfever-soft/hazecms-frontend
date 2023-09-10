@@ -1,0 +1,13 @@
+@use "./header" as header;
+@use "./breadcrumb" as breadcrumb;
+@use "./flash-message" as flash-message;
+@use "./alert" as alert;
+@use "./swiper" as swiper;
+
+@mixin components($theme) {
+    @include alert.alert($theme);
+    @include header.header($theme);
+    @include breadcrumb.breadcrumb();
+    @include flash-message.flash-message($theme);
+    @include swiper.swiper($theme);
+}

@@ -1,0 +1,32 @@
+@mixin stepper() {
+    mat-stepper.haze__stepper {
+        .mat-step-header {
+            padding: 20px 10px;
+        }
+
+        .mat-vertical-content-container {
+            margin-left: 21px;
+        }
+
+
+        .mat-vertical-stepper-content {
+            .mat-vertical-content {
+                padding: 20px;
+            }
+        }
+
+        .haze__stepper-actions {
+            display: flex;
+            margin: 25px 0 0;
+            flex-direction: row;
+            flex-wrap: wrap;
+            @media screen and (max-width: 599.98px) {
+                flex-direction: column;
+                align-items: center;
+            }
+            span.spacer {
+                flex: 1;
+            }
+        }
+    }
+}

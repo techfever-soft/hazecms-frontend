@@ -1,0 +1,82 @@
+<form [formGroup]="searchForm">
+  <mat-form-field>
+    <mat-label>Search...</mat-label>
+    <input type="text" matInput formControlName="input" #searchInput />
+    <button
+      mat-icon-button
+      matSuffix
+      *ngIf="searchInput.value"
+      (click)="onClearSearchInput()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  <mat-icon matIconSuffix>search</mat-icon>
+</mat-form-field>
+</form>
+
+<div class="haze__swiper">
+  <swiper [config]="elementsSwiperConfig" #elementSwiper style="width: 150px">
+    <ng-template swiperSlide *ngIf="!filteredElements.length">
+      <mat-card class="text-center" style="padding: 25px; align-items: center">
+        <mat-icon>error</mat-icon>
+        <p class="mat-p">No element found</p>
+      </mat-card>
+    </ng-template>
+
+    <ng-template
+      swiperSlide
+      *ngFor="let element of filteredElements"
+      class="selector-slide {{ element.disabled ? 'disabled' : '' }}"
+    >
+      <mat-card
+        style="width: 100%"
+        [ngStyle]="{ transform: element.selected ? 'scale(0.9)' : '' }"
+      >
+        <a
+          href="javascript:void(0)"
+          matRipple
+          (click)="
+            element.selected = !element.selected; onToggleSelectElement(element)
+          "
+          ><div class="selector">
+            <mat-checkbox
+              [checked]="element.selected"
+              color="primary"
+              (change)="onToggleSelectElement(element)"
+            ></mat-checkbox>
+          </div>
+          <div class="selector-slide__cover">
+            <div class="icon">
+              <mat-icon
+                fontSet="material-symbols-outlined"
+                style="font-size: 60px; height: 60px; width: 60px"
+                >{{ element.icon }}</mat-icon
+              >
+            </div>
+          </div>
+          <div class="selector-slide__content">
+            {{ element.label }}
+          </div>
+        </a>
+      </mat-card>
+    </ng-template>
+  </swiper>
+  <div class="haze__swiper-nav">
+    <button
+      mat-mini-fab
+      color="primary"
+      id="container-element-prev"
+      class="swiper-button-prev"
+    >
+      <mat-icon>arrow_backward</mat-icon>
+    </button>
+    <button
+      mat-mini-fab
+      color="primary"
+      id="container-element-next"
+      class="swiper-button-next"
+    >
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+</div>

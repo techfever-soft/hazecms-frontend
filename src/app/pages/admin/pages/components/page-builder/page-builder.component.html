@@ -1,0 +1,145 @@
+<!-- <form [formGroup]="searchForm">
+  <mat-form-field>
+    <mat-label>Search an element</mat-label>
+    <input matInput formControlName="input" />
+    <button mat-icon-button matIconSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Categorize elements</mat-label>
+    <mat-select formControlName="category">
+      <mat-option value=""
+        ><mat-icon>all_inclusive</mat-icon> All elements</mat-option
+      >
+      <mat-option value="basic"
+        ><mat-icon>category</mat-icon> Base elements</mat-option
+      >
+      <mat-option value="containers"
+        ><mat-icon>grid_view</mat-icon> Container elements</mat-option
+      >
+      <mat-option value="plugins"
+        ><mat-icon>extension</mat-icon> Plugin elements</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</form> -->
+
+<div class="text-center text-muted">
+  <div>
+    <mat-icon>construction</mat-icon>
+  </div>
+  <div>
+    <p class="mat-p">Builder</p>
+  </div>
+</div>
+
+<div style="display: flex" *ngIf="addedElements.length">
+  <div>
+    <mat-checkbox
+      [checked]="allAddedElementsSelected"
+      [indeterminate]="indeterminateSelection"
+      (change)="onSelectAllAddedElements($event)"
+      [disabled]="!addedElements.length"
+    ></mat-checkbox>
+  </div>
+  <span style="flex: 1"></span>
+  <div>
+    <button mat-button [disabled]="!addedElements.length">
+      <mat-icon>filter_alt</mat-icon> Order by
+    </button>
+    <button
+      mat-button
+      [disabled]="!addedElements.length || !someAddedElementsSelected"
+      color="warn"
+      (click)="onDeleteAddedSelection()"
+    >
+      <mat-icon>delete</mat-icon> Delete selection
+    </button>
+  </div>
+</div>
+
+<div class="mb-15 mt-15">
+  <mat-divider></mat-divider>
+</div>
+
+<div *ngIf="!addedElements.length" class="text-center">
+  <mat-icon>error</mat-icon>
+  <p class="mat-p">You haven't added elements for now</p>
+  <p class="mat-caption text-muted text-muted">
+    Add your first element to get started
+  </p>
+  <button
+    mat-raised-button
+    color="accent"
+    (click)="elementsDrawer ? elementsDrawer.toggle() : ''"
+  >
+    <mat-icon>{{
+      elementsDrawer && elementsDrawer.opened ? "close" : "menu"
+    }}</mat-icon>
+    {{
+      elementsDrawer && elementsDrawer.opened
+        ? "Close elements menu"
+        : "Open elements menu"
+    }}
+  </button>
+</div>
+
+<mat-accordion cdkDropList cdkDropListLockAxis="y" class="drag-boundary">
+  <div
+    *ngFor="let element of addedElements"
+    cdkDrag
+    cdkDragBoundary=".drag-boundary"
+    (cdkDragDropped)="onElementDropped($event)"
+  >
+    <div style="display: flex; align-items: center; justify-content: center">
+      <div style="display: flex; flex-direction: row">
+        <mat-checkbox
+          style="display: flex"
+          [checked]="element.selected"
+          (change)="element.selected = $event.checked; onSelectAddedElement()"
+        ></mat-checkbox>
+        <button mat-icon-button cdkDragHandle>
+          <mat-icon>drag_indicator</mat-icon>
+        </button>
+      </div>
+      <div class="haze__page-builder--block">
+        <mat-expansion-panel #elementBlock="matExpansionPanel">
+          <mat-expansion-panel-header>
+            <mat-panel-title
+              ><mat-icon fontSet="material-symbols-outlined">{{
+                element.icon
+              }}</mat-icon></mat-panel-title
+            >
+            <mat-panel-description>{{ element.label }}</mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <app-page-element-config
+            [element]="element"
+          ></app-page-element-config>
+
+          <div *ngIf="element.type === 'container'">
+            <div class="text-center">
+              <button
+                mat-raised-button
+                color="accent"
+                (click)="addNestedElement(element)"
+                [disabled]="!selectedElements.length"
+              >
+                <mat-icon>add</mat-icon> Add a nested element
+              </button>
+              <mat-error *ngIf="!selectedElements.length"
+                >Select an element first</mat-error
+              >
+            </div>
+
+            <app-page-nested-element
+              [elements]="element.nestedElements"
+            ></app-page-nested-element>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </div>
+</mat-accordion>

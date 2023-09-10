@@ -1,0 +1,18 @@
+@mixin toolbar() {
+    .haze__toolbar {
+        button.haze__brand {
+            .mdc-button__label {
+                display: flex;
+                align-items: center;
+                font-weight: 900;
+                img {
+                    margin-right: 1px;
+                }
+            }
+        }
+
+        .spacer {
+            flex: 1;
+        }
+    }
+}

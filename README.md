@@ -1,27 +1,105 @@
-# Frontend
+# 🚀 HazeCMS (front-end)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+Welcome to the HazeCMS Front-end repository. This repository contains the frontend code for a flexible and lightweight Content Management System.
 
-## Development server
+HazeCMS frontend was built using Angular 16, RxJS, NgRX and Angular Material.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+HazeCMS backend was built with NodeJS.
 
-## Code scaffolding
+This project is still quite small and build by one developer. But I hope to make it grow with the help of the community. Don't hesitate to [give your opinion or contribute](https://github.com/techfever-soft/hazecms-frontend/issues) on all the functionnalities !
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> ### If you want to clone the back-end server, please [go on this repository](https://github.com/techfever-soft/hazecms-backend)
 
-## Build
+> # [Join the newsletter and see what can be done with HazeCMS](https://hazecms.com)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Front-end features
 
-## Running unit tests
+- [x] **Content Management System** 
+- [x] **User-Friendly Interface**
+- [x] **Visual page builder** (DEMO, for the moment)
+- [x] **Material Design Extended Components**
+- [x] **Server-Side Rendering (SSR)**
+- [x] **Customizable**
+- [x] Responsive Design for Mobile Devices
+- [x] **Multi-language**
+- [ ] **SEO Optimized**
+- [ ] **Users & roles Management**
+- [ ] **Advanced text editor**
+- [ ] **Extensible via Plugins**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Back-end features
+- [x] **MySQL support**
+- [ ] ~~MongogDB support~~
+- [ ] ~~Firebase support~~
+- [x] **Dynamic Pages Creation**
+- [x] **API endpoints**
+- [x] **Data encryption**
+- [ ] **User and Admin Authentification**
+- [ ] **Medias management (Image, Video and Fonts)**
+- [ ] **Server Load Balancing for Scalability**
+- [ ] **User Activity Logs for Auditing**
+- [ ] **Extensible via Plugins**
 
-## Running end-to-end tests
+### Haze API features
+- [x] **Licence management**
+- [ ] **E-commerce capacibilities**
+- [ ] **Cloud storage integration**
+- [ ] **Notification system**
+- [ ] **Scheduled Tasks and Cron Jobs**
+- [ ] **Integration with thid-party services**
+- [ ] **Extensible via Plugins**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Getting Started
 
-## Further help
+These instructions will help you get a copy of the project up and running on your local machine for development and testing purposes.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Prerequisites
+
+- An API key to activate your CMS. [Get an API Key](https://hazecms.com).
+
+- Access to your [HazeCMS back-end server](https://github.com/techfever-soft/hazecms-backend).
+
+- Node.js V16+ and npm V9+ installed.
+
+  ```bash
+  node --version
+  npm --version
+  ```
+
+- Angular V16+ installed globally
+
+  ```bash
+  npm i -g @angular/cli
+  ```
+
+- An available database server with an **empty database** called "hazecms" or what you want
+  - MySQL (default port 3306)
+    ```bash
+    mysql -u root -p
+    ```
+  - ~~MongoDB~~
+  - ~~Firestore~~
+ 
+## Installation
+
+Please refer to [INSTALL.md](https://github.com/techfever-soft/hazecms-frontend/blob/main/INSTALL.md)
+
+## Usage
+
+Please refer to the [documentation](https://hazecms/documentation)
+
+## Deployment
+
+1. Replace your variables inside `src/app/environments`
+
+2. Build and deploy code
+   - Basic
+     - Run `npm run build:prod`
+     - Deploy your `./dist/frontend/browser` files into a web server (drag-and-drop, FTP...)
+   - SSR
+     - Build SSR files with `npm run build:ssr`
+     - Prerender routes with `npm run prerender`
+     - You can now test your application by running `node ./dist/frontend/server/main.js`
+     - Deploy your `./dist/frontend/server` files into a web server (drag-and-drop, FTP...)
+   - Firebase
+     - Run `firebase deploy`

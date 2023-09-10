@@ -1,0 +1,10 @@
+@mixin card() {
+    .haze__card {
+        padding: 10px;
+        border-radius: 10px;
+
+        &.haze__card--fit-content {
+            max-width: fit-content;
+        }
+    }
+}

@@ -1,0 +1,8 @@
+<span *ngIf="element.config">
+  <span *ngIf="element.config['type'] === 'caption'">
+    <p class="mat-caption">{{ element.config["content"] }}</p>
+  </span>
+  <span *ngIf="element.config['type'] === 'paragraph'">
+    <p class="mat-p">{{ element.config["content"] }}</p>
+  </span>
+</span>

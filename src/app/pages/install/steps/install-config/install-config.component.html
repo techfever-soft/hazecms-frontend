@@ -1,0 +1,111 @@
+<form [formGroup]="installConfigForm" (submit)="onAddAdmin()">
+  <mat-form-field class="w-100">
+    <mat-label>Language</mat-label>
+    <mat-select formControlName="language">
+      <mat-option value="en">English</mat-option>
+      <mat-option value="fr">Français</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Timezone</mat-label>
+    <mat-select formControlName="timezone">
+      <mat-option
+        *ngFor="let timezone of timezoneList; let timezoneIndex = index"
+        [value]="timezoneIndex"
+      >
+        UTC{{ timezone.offset }} - {{ timezone.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <form [formGroup]="addAdminForm" (submit)="onAddAdmin()">
+    <h5 class="mat-h5 align-text-with-icon">
+      <mat-icon>admin_panel_settings</mat-icon> Administrators
+    </h5>
+
+    <div class="haze__flex-form__row cols-2">
+      <mat-form-field class="w-100">
+        <mat-label> Admin email </mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder=""
+          formControlName="adminEmail"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Admin password</mat-label>
+        <input matInput type="text" formControlName="adminPassword" />
+      </mat-form-field>
+    </div>
+
+    <div class="text-center">
+      <button
+        type="submit"
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="addAdminForm.invalid"
+      >
+        <mat-icon>add</mat-icon> Add this admin
+      </button>
+    </div>
+  </form>
+
+  <mat-list
+    *ngIf="installConfigForm.get('adminsList')?.value.length"
+    class="haze__list mt-25"
+  >
+    <div
+      *ngFor="
+        let admin of installConfigForm.get('adminsList')?.value;
+        let index = index;
+        let last = last
+      "
+    >
+      <mat-list-item class="haze__list-item">
+        <span matListItemTitle>
+          {{ admin.email }}
+        </span>
+        <div matListItemMeta>
+          <button mat-button color="warn" (click)="onDeleteAdmin(index)">
+            <mat-icon>delete</mat-icon>
+            Delete
+          </button>
+        </div>
+      </mat-list-item>
+      <mat-divider *ngIf="!last"></mat-divider>
+    </div>
+  </mat-list>
+
+  <div class="mt-15">
+    <app-alert
+      *ngIf="!installConfigForm.get('adminsList')?.value.length"
+      type="info"
+      icon="info"
+      title="No admin added for the moment"
+      subTitle="Add your first admin to continue"
+    ></app-alert>
+  </div>
+</form>
+
+<div class="haze__stepper-actions">
+  <div>
+    <button mat-button matStepperPrevious>
+      <mat-icon>arrow_backward</mat-icon> Previous step
+    </button>
+  </div>
+  <span class="spacer"></span>
+  <div>
+    <button
+      mat-raised-button
+      color="primary"
+      matStepperNext
+      [disabled]="!installConfigForm.get('adminsList')?.value.length"
+    >
+      <mat-icon>arrow_forward</mat-icon> Next step
+    </button>
+  </div>
+</div>

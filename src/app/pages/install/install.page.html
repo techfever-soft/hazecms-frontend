@@ -1,0 +1,168 @@
+<div class="haze__page-header haze__page-header--with-card-below"></div>
+
+<div class="haze__page-container haze__page-container--card-below">
+  <mat-card class="haze__card haze__card--fit-content mx-auto">
+    <div class="text-center">
+      <img src="/assets/images/haze__brand.png" alt="Haze Logo" width="100" />
+      <h2 class="mat-h2">Welcome on HazeCMS</h2>
+      <p class="mat-p">Your CMS is not installed for now.</p>
+      <mat-chip>Alpha v0.0.1</mat-chip>
+
+      <div class="mt-25 mb-15">
+        <button
+          mat-raised-button
+          color="primary"
+          class="haze__button haze__button--column mx-auto"
+          routerLink="/install/steps"
+        >
+          <mat-icon>rocket_launch</mat-icon> Ready for launching ?
+        </button>
+      </div>
+      <div class="mb-25">
+        <a
+          mat-raised-button
+          color="accent"
+          class="haze__button haze__button--column mx-auto"
+          target="_blank"
+          href="https://github.com/techfever-soft/hazecms-frontend/issues"
+        >
+          <mat-icon>star</mat-icon> Share your opinion
+        </a>
+      </div>
+    </div>
+
+    <button
+      mat-button
+      class="haze__button"
+      (click)="requirementsShowed = !requirementsShowed"
+    >
+      <mat-icon
+        >{{ requirementsShowed ? 'keyboard_arrow_up' : 'keyboard_arrow_right'
+        }}</mat-icon
+      >
+      {{ requirementsShowed ? 'Close' : 'See requirements' }}
+    </button>
+
+    <div [hidden]="!requirementsShowed">
+      <mat-list class="haze__list">
+        <mat-list-item class="haze__list-item">
+          <mat-icon matListItemIcon fontSet="material-symbols-outlined"
+            >package_2</mat-icon
+          >
+          Node.js <b>v18+</b>
+          <pre><code lang="bash" [highlight]="'node --version'"></code></pre>
+          NPM <b>V9+</b>
+          <pre><code lang="bash" [highlight]="'npm --version'"></code></pre>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="haze__list-item">
+          <mat-icon matListItemIcon fontSet="material-symbols-outlined"
+            >package_2</mat-icon
+          >
+          Angular CLI <b>v16+</b>
+          <pre><code lang="bash" [highlight]="'ng --version'"></code></pre>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="haze__list-item">
+          <mat-icon matListItemIcon fontSet="material-symbols-outlined"
+            >dns</mat-icon
+          >
+          The backend server running
+          <pre><code lang="bash" [highlight]="'cd ./backend\nnpm i\nnpm run build\nnpm run serve'"></code></pre>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="haze__list-item">
+          <mat-icon matListItemIcon fontSet="material-symbols-outlined"
+            >database</mat-icon
+          >
+          A database server running with an empty database
+          <ul>
+            <li>
+              MySQL
+              <pre><code lang="bash" [highlight]="'mysql -u root -p'"></code></pre>
+            </li>
+            <li>
+              <span style="text-decoration: line-through">MongoDB</span> (Soon)
+            </li>
+            <li>
+              <span style="text-decoration: line-through">Firestore</span>
+              (Soon)
+            </li>
+          </ul>
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <button
+      mat-button
+      class="haze__button"
+      (click)="resourcesShowed = !resourcesShowed"
+    >
+      <mat-icon
+        >{{ resourcesShowed ? 'keyboard_arrow_up' : 'keyboard_arrow_right'
+        }}</mat-icon
+      >
+      {{ resourcesShowed ? 'Close' : 'See Resources' }}
+    </button>
+
+    <div [hidden]="!resourcesShowed">
+      <mat-list>
+        <mat-list-item>
+          <img
+            matTooltip="HazeCMS"
+            src="/assets/images/haze__brand.png"
+            matListItemIcon
+            alt="Haze Logo"
+          />
+          <p matListItemTitle class="mat-caption">HazeCMS</p>
+          <div matListItemMeta>
+            <button mat-button><mat-icon>open_in_new</mat-icon> Read</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <img
+            matTooltip="Angular"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+            matListItemIcon
+            alt=""
+          />
+          <p matListItemTitle class="mat-caption">Angular</p>
+          <div matListItemMeta>
+            <button mat-button><mat-icon>open_in_new</mat-icon> Read</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <img
+            matTooltip="Angular Material"
+            src="https://material.angular.io/assets/img/angular-material-logo.svg"
+            matListItemIcon
+            alt=""
+          />
+          <p matListItemTitle class="mat-caption">Material</p>
+          <div matListItemMeta>
+            <button mat-button><mat-icon>open_in_new</mat-icon> Read</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <img
+            matTooltip="NgRX"
+            src="https://ngrx.io/assets/images/badge.svg"
+            matListItemIcon
+            alt=""
+          />
+          <p matListItemTitle class="mat-caption">NgRX</p>
+          <div matListItemMeta>
+            <button mat-button><mat-icon>open_in_new</mat-icon> Read</button>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <a href="//techfever.dev" target="_blank" class="mt-50 mb-25 text-center"
+      ><img
+        src="/assets/images/techfever__brand.png"
+        width="150"
+        alt="TechFever Logo"
+    /></a>
+  </mat-card>
+</div>

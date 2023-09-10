@@ -1,0 +1,43 @@
+<div class="text-center text-muted">
+  <div>
+    <mat-icon>preview</mat-icon>
+  </div>
+  <div>
+    <p class="mat-p">Preview</p>
+  </div>
+</div>
+
+<div *ngIf="!addedElements.length" class="text-center mt-50">
+  <mat-icon>info</mat-icon>
+  <p class="mat-p">Preview is empty</p>
+  <p class="mat-caption text-muted text-muted">
+    Add your first element to get started
+  </p>
+</div>
+
+<div *ngIf="addedElements.length">
+  <!-- <pre>
+  {{ addedElements | json }}
+</pre
+  > -->
+
+  <div *ngFor="let element of addedElements">
+    <span *ngIf="element.type === 'element'">
+      <span *ngIf="element.name === 'headline'">
+        <app-title-element-preview
+          [element]="element"
+        ></app-title-element-preview>
+      </span>
+      <span *ngIf="element.name === 'paragraph'">
+        <app-paragraph-element-preview
+          [element]="element"
+        ></app-paragraph-element-preview>
+      </span>
+    </span>
+    <span *ngIf="element.type === 'container'">
+      <span *ngIf="element.name === 'card'">
+        <!-- <app-card-container-element-preview [elements]="element.nestedElements"></app-card-container-element-preview> -->
+      </span>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<h3 class="mat-h3 text-center">After installation, you must remove from :</h3>
+
+
+<div class="mb-50">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>brush</mat-icon>
+        </mat-panel-title>
+        <mat-panel-description> Front-end </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <pre><code lang="typescript" [highlight]="removeFrontendInstallCode"></code></pre>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>dns</mat-icon>
+        </mat-panel-title>
+        <mat-panel-description> Back-end </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <pre><code lang="typescript" [highlight]="removeBackendInstallCode"></code></pre>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<app-flash-message
+  *ngIf="activationStatus"
+  [message]="activationStatus.message"
+  [type]="activationStatus.type"
+></app-flash-message>
+
+<div
+  *ngIf="activationStatus && activationStatus.type === 'success'"
+  class="mb-25"
+>
+  <button
+    mat-raised-button
+    color="accent"
+    class="haze__button haze__button--column mx-auto"
+    routerLink="/admin"
+  >
+    <mat-icon>admin_panel_settings</mat-icon> Go to admin panel
+  </button>
+</div>
+
+<button
+  class="haze__button haze__button--column mx-auto"
+  mat-raised-button
+  color="primary"
+  (click)="onFinalizeInstallation()"
+  [disabled]="
+    isInstalling || (activationStatus && activationStatus.type === 'success')
+  "
+>
+  <mat-icon>check_circle</mat-icon>
+  {{ isInstalling ? "Install in progress..." : "Finish the installation" }}
+</button>

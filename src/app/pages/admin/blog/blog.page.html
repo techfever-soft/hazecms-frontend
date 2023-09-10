@@ -1,0 +1,154 @@
+<app-admin-drawer>
+  <div class="haze__page-header haze__page-header--with-card-below">
+    <div class="haze__page-header--title">
+      <h2 class="mat-h2">Blog</h2>
+    </div>
+  </div>
+
+  <div class="haze__page-container haze__page-container--card-below">
+    <mat-card class="haze__card">
+      <app-admin-navlist></app-admin-navlist>
+
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <button
+          routerLink="/admin/blog/write"
+          mat-raised-button
+          color="accent"
+          class="haze__button haze__button--column"
+        >
+          <mat-icon>add</mat-icon> Write a new post
+        </button>
+        <button
+          mat-button
+          class="haze__button haze__button--column"
+          (click)="onOpenCategoriesDialog()"
+        >
+          <mat-icon>edit</mat-icon> Edit categories
+        </button>
+      </div>
+
+      <!-- TODO: Search in next release -->
+      <!-- <div
+        class="haze__form-field-with--icon-button haze__form-field-with--icon-button--centerize mt-25"
+      >
+        <mat-form-field>
+          <mat-label>Search...</mat-label>
+          <mat-icon matPrefix> search </mat-icon>
+          <input type="text" matInput />
+        </mat-form-field>
+
+        <button mat-icon-button [matMenuTriggerFor]="filterMenu">
+          <mat-icon>filter_alt</mat-icon>
+        </button>
+        <mat-menu #filterMenu="matMenu" class="haze__menu">
+          <a mat-menu-item> <mat-icon>sort_by_alpha</mat-icon> Alphabetical </a>
+          <a mat-menu-item> <mat-icon>today</mat-icon> Created at </a>
+          <a mat-menu-item> <mat-icon>today</mat-icon> Published at </a>
+        </mat-menu>
+      </div> -->
+
+      <app-flash-message
+        *ngIf="postsStatus"
+        [type]="postsStatus.type"
+        [message]="postsStatus.message"
+      ></app-flash-message>
+
+      <!-- ANCHOR: List loader -->
+      <div class="mt-25" *ngIf="isPostsLoading">
+        <div *ngFor="let fakeItem of [0,1,2,3]; let last = last">
+          <ngx-skeleton-loader
+            animation="progress"
+            [theme]="{ width: '500px', height: '20px', 'max-width': '100%' }"
+          ></ngx-skeleton-loader>
+          <br />
+          <ngx-skeleton-loader
+            animation="progress"
+            [theme]="{ width: '175px', height: '20px' }"
+          ></ngx-skeleton-loader>
+          <br />
+          <div style="display: inline-flex; overflow: auto; width: 100%">
+            <ngx-skeleton-loader
+              animation="progress"
+              [theme]="{ width: '100px', height: '35px', 'margin-right': '5px' }"
+            ></ngx-skeleton-loader>
+            <ngx-skeleton-loader
+              animation="progress"
+              [theme]="{ width: '100px', height: '35px', 'margin-right': '5px' }"
+            ></ngx-skeleton-loader>
+            <ngx-skeleton-loader
+              animation="progress"
+              [theme]="{ width: '100px', height: '35px', 'margin-right': '5px' }"
+            ></ngx-skeleton-loader>
+          </div>
+
+          <div class="mt-15 mb-15">
+            <mat-divider *ngIf="!last"></mat-divider>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-25 mb-25">
+        <app-alert
+          *ngIf="!isPostsLoading && !postsList.length"
+          type="info"
+          icon="info"
+          title="Your posts list looks empty"
+          subTitle="Add your first post !"
+        ></app-alert>
+      </div>
+
+      <!-- ANCHOR: Posts list -->
+      <div [hidden]="isPostsLoading">
+        <mat-list class="haze__list">
+          <div *ngFor="let post of postsList; let last = last">
+            <mat-list-item class="haze__list-item">
+              <div matListItemTitle>{{ post.name }}</div>
+              <div matListItemLine>{{ post.createdAt }}</div>
+              <div matListItemLine class="haze__list-item--actions">
+                <button
+                  mat-button
+                  routerLink="/admin/blog/view/{{ post.id }}"
+                  class="haze__button"
+                >
+                  <mat-icon>open_in_new</mat-icon> See post
+                </button>
+                <button
+                  mat-button
+                  routerLink="/admin/blog/edit/{{ post.id }}"
+                  class="haze__button"
+                >
+                  <mat-icon>edit</mat-icon> Edit
+                </button>
+                <button
+                  mat-button
+                  color="warn"
+                  (click)="onDeletePost(post.id)"
+                  class="haze__button"
+                >
+                  <mat-icon>delete</mat-icon> Delete
+                </button>
+              </div>
+            </mat-list-item>
+            <mat-divider *ngIf="!last"></mat-divider>
+          </div>
+        </mat-list>
+
+        <mat-paginator></mat-paginator>
+
+        <div class="mt-25 mb-25 text-center">
+          <button mat-button (click)="loadPosts()">
+            <mat-icon>refresh</mat-icon> Reload
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</app-admin-drawer>

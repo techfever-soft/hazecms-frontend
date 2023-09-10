@@ -1,0 +1,8 @@
+@mixin container() {
+    .haze__page-container {
+        padding: 1em;
+        &.haze__page-container--card-below {
+            margin-top: -50px;
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@mixin icon() {
+    fa-icon.haze__icon-xl,
+    mat-icon.haze__icon-xl {
+        font-size: 40px;
+        height: 40px;
+        width: 40px;
+    }
+}

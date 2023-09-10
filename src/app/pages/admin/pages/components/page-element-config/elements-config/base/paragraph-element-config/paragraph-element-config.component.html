@@ -1,0 +1,14 @@
+<form [formGroup]="paragraphForm">
+  <mat-form-field>
+    <mat-label>Your content</mat-label>
+    <textarea matInput type="text" formControlName="content"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Type of text</mat-label>
+    <mat-select formControlName="type">
+      <mat-option value="paragraph">Paragraph</mat-option>
+      <mat-option value="caption">Caption</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

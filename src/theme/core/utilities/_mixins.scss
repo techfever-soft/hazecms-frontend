@@ -1,0 +1,54 @@
+@mixin mixins() {
+    .mt-15 {
+        margin-top: 15px;
+    }
+
+    .mb-15 {
+        margin-bottom: 15px;
+    }
+
+    .mt-25 {
+        margin-top: 25px;
+    }
+
+    .mb-25 {
+        margin-bottom: 25px;
+    }
+
+    .mt-50 {
+        margin-top: 50px;
+    }
+
+    .mb-50 {
+        margin-bottom: 50px;
+    }
+
+    .mx-auto {
+        margin: 0 auto;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-end {
+        text-align: end;
+    }
+
+    .text-muted {
+        opacity: 0.5;
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+
+    .align-text-with-icon {
+        display: flex;
+        align-items: center;
+        mat-icon,
+        fa-icon {
+            margin-right: 5px;
+        }
+    }
+}

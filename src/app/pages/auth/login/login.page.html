@@ -1,0 +1,46 @@
+<div class="haze__page-header haze__page-header--with-card-below">
+  <div class="haze__page-header--title">
+    <h2 class="mat-h2">Login</h2>
+  </div>
+</div>
+
+<div class="haze__page-container haze__page-container--card-below">
+  <mat-card class="haze__card haze__card--fit-content mx-auto">
+    <app-flash-message
+      *ngIf="loginResponse"
+      [type]="loginResponse.type"
+      [message]="loginResponse.message"
+    ></app-flash-message>
+
+    <form [formGroup]="loginForm" (submit)="onLogin()">
+      <div class="haze__flex-form haze__flex-form--column">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input type="text" matInput formControlName="email" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type="text" matInput formControlName="password" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <a href="#">Forgot password ?</a>
+      </div>
+
+      <div class="haze__flex-actions mt-25">
+        <div>
+          <button mat-button class="haze__button">
+            <mat-icon>edit</mat-icon> Register
+          </button>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" class="haze__button">
+            <mat-icon>check_circle</mat-icon> Login
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

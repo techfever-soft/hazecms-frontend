@@ -1,0 +1,16 @@
+@mixin slide-toggle() {
+    .haze__slide-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .mat-mdc-slide-toggle {
+            padding: 20px;
+        }
+        .haze__slide-toggle--caption {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50px;
+        }
+    }
+}

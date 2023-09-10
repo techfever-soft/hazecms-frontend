@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@include mat.core();
+
+@mixin alert($theme) {
+    $color-config: mat.get-color-config($theme);
+    $typography: mat.define-typography-config();
+    $primary-palette: mat.get-color-from-palette($color-config, "primary");
+    $accent-palette: mat.get-color-from-palette($color-config, "accent");
+    $warn: mat.get-color-from-palette($color-config, "warn");
+    $background: mat.get-color-from-palette($color-config, "background");
+    $foreground: mat.get-color-from-palette($color-config, "foreground");
+
+    .haze__alert {
+        padding: 15px;
+        border-radius: 10px;
+        width: fit-content;
+        min-width: 100px;
+        &.default {
+            background: var(--mdc-filled-text-field-container-color);
+        }
+        &.info {
+            background: mat.get-color-from-palette(mat.$blue-palette, 500);
+            color: #fff;
+        }
+    }
+}

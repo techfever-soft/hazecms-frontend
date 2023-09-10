@@ -1,0 +1,50 @@
+<div class="haze__page-header haze__page-header--with-card-below">
+  <div class="haze__page-header--title">
+    <h1 class="mat-h1">Installation</h1>
+  </div>
+
+  <app-breadcrumb type="button" [route]="installRoute"></app-breadcrumb>
+</div>
+
+<div class="haze__page-container haze__page-container--card-below">
+  <mat-card class="haze__card haze__card--fit-content mx-auto">
+    <mat-stepper
+      class="haze__stepper"
+      #stepper
+      [orientation]="(stepperOrientation | async)!"
+      [linear]="true"
+    >
+      <mat-step [stepControl]="activationForm">
+        <ng-template matStepLabel>Activation</ng-template>
+
+        <app-install-activation
+          [form]="activationForm"
+        ></app-install-activation>
+      </mat-step>
+
+      <mat-step [stepControl]="databaseSettingsForm">
+        <ng-template matStepLabel>Database</ng-template>
+
+        <app-install-database
+          [form]="databaseSettingsForm"
+        ></app-install-database>
+      </mat-step>
+
+      <mat-step [stepControl]="installConfigForm">
+        <ng-template matStepLabel>Configuration</ng-template>
+
+        <app-install-config [form]="installConfigForm"></app-install-config>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Finalization</ng-template>
+
+        <app-install-finalization
+          [activation]="activationForm"
+          [database]="databaseSettingsForm"
+          [config]="installConfigForm"
+        ></app-install-finalization>
+      </mat-step>
+    </mat-stepper>
+  </mat-card>
+</div>

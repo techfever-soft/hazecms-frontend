@@ -1,0 +1,35 @@
+<mat-form-field>
+  <mat-label>ID</mat-label>
+  <input matInput type="text" [value]="element.id" [disabled]="true" />
+</mat-form-field>
+
+<span *ngIf="element.type === 'element'">
+  <span *ngIf="element.name === 'headline'">
+    <app-title-element-config
+      (formChanged)="onUpdateElementConfig($event)"
+      [element]="element"
+    ></app-title-element-config>
+  </span>
+  <span *ngIf="element.name === 'paragraph'">
+    <app-paragraph-element-config
+      (formChanged)="onUpdateElementConfig($event)"
+      [element]="element"
+    ></app-paragraph-element-config>
+  </span>
+  <span *ngIf="element.name === 'text'">
+    <app-formatted-text-element-config
+      (formChanged)="onUpdateElementConfig($event)"
+      [element]="element"
+    ></app-formatted-text-element-config>
+  </span>
+  <span *ngIf="element.name === 'list'">
+    <app-list-element-config></app-list-element-config>
+  </span>
+  <!-- TODO : write the rest of elements list -->
+</span>
+
+<span *ngIf="element.type === 'container'">
+  <span *ngIf="element.name === 'card'">
+    <app-card-element-config></app-card-element-config>
+  </span>
+</span>

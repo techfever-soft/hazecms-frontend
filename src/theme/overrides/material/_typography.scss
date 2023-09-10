@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@include mat.core();
+
+@mixin typography($theme) {
+    $typography: mat.define-typography-config();
+
+    .mat-typography {
+        font-family: "Montserrat", sans-serif;
+    }
+
+    p.mat-p {
+        font-family: "Montserrat", sans-serif !important;
+        @include mat.typography-level($typography, "body-2");
+    }
+
+    p.mat-caption {
+        font-family: "Montserrat", sans-serif !important;
+        @include mat.typography-level($typography, "caption");
+    }
+}

@@ -1,0 +1,7 @@
+@mixin highlightjs() {
+    @import "~highlight.js/styles/stackoverflow-dark.css";
+
+    pre code.hljs {
+        border-radius: 5px;
+    }
+}

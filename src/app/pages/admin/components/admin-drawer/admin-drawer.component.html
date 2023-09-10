@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    aria-label="Admin menu"
+    (click)="adminDrawer.toggle()"
+  >
+    <mat-icon>{{ adminDrawer.opened ? "close" : "menu" }}</mat-icon>
+  </button>
+
+  <button mat-button routerLink="/admin">Admin panel</button>
+</mat-toolbar>
+
+<mat-drawer-container class="haze__drawer haze__drawer--with-double-toolbar">
+  <mat-drawer [opened]="false" mode="side" #adminDrawer="matDrawer">
+    <mat-nav-list>
+      <a routerLink="/admin/dashboard" routerLinkActive="active" mat-list-item
+        ><mat-icon matListItemIcon>dashboard</mat-icon> Dashboard</a
+      >
+      <a routerLink="/admin/pages" routerLinkActive="active" mat-list-item
+        ><mat-icon matListItemIcon>construction</mat-icon> Pages builder</a
+      >
+      <a routerLink="/admin/blog" routerLinkActive="active" mat-list-item
+        ><mat-icon matListItemIcon>newspaper</mat-icon> Blog</a
+      >
+      <a
+        routerLink="/admin/users"
+        routerLinkActive="active"
+        mat-list-item
+        [disabled]="true"
+        ><mat-icon matListItemIcon>groups</mat-icon> Users</a
+      >
+      <a
+        routerLink="/admin/settings"
+        routerLinkActive="active"
+        mat-list-item
+        [disabled]="true"
+        ><mat-icon matListItemIcon>settings</mat-icon> Settings</a
+      >
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <ng-content></ng-content>
+  </mat-drawer-content>
+</mat-drawer-container>

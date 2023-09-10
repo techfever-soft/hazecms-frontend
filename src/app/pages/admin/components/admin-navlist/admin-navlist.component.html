@@ -1,0 +1,67 @@
+<div class="text-center">
+  <button
+    mat-button
+    (click)="navlistShowed = !navlistShowed"
+    class="haze__button w-100"
+  >
+    <mat-icon>{{ navlistShowed ? "expand_less" : "expand_more" }}</mat-icon>
+    {{ navlistShowed ? "Hide" : "Show admin menu" }}
+  </button>
+</div>
+
+<div [hidden]="!navlistShowed">
+  <mat-nav-list class="haze__navlist-grid haze__navlist-grid--centered">
+    <a
+      mat-list-item
+      class="haze__navlist-grid--item"
+      routerLink="/admin/dashboard"
+      routerLinkActive="active"
+    >
+      <mat-icon class="haze__icon-xl">dashboard</mat-icon>
+      <div class="haze__navlist-grid--item__content">Dashboard</div>
+    </a>
+    <a
+      mat-list-item
+      class="haze__navlist-grid--item"
+      routerLink="/admin/pages"
+      routerLinkActive="active"
+    >
+      <mat-icon class="haze__icon-xl">construction</mat-icon>
+      <div class="haze__navlist-grid--item__content">Pages builder</div>
+      <mat-chip>JULY DEMO</mat-chip>
+    </a>
+    <a
+      mat-list-item
+      class="haze__navlist-grid--item"
+      routerLink="/admin/blog"
+      routerLinkActive="active"
+    >
+      <mat-icon class="haze__icon-xl">newspaper</mat-icon>
+      <div class="haze__navlist-grid--item__content">Blog</div>
+    </a>
+    <a
+      mat-list-item
+      class="haze__navlist-grid--item"
+      routerLink="/admin/users"
+      routerLinkActive="active"
+      [disabled]="true"
+    >
+      <mat-icon class="haze__icon-xl">groups</mat-icon>
+      <div class="haze__navlist-grid--item__content">Users</div>
+    </a>
+    <a
+      mat-list-item
+      class="haze__navlist-grid--item"
+      routerLink="/admin/settings"
+      routerLinkActive="active"
+      [disabled]="true"
+    >
+      <mat-icon class="haze__icon-xl">settings</mat-icon>
+      <div class="haze__navlist-grid--item__content">Settings</div>
+    </a>
+  </mat-nav-list>
+
+  <div class="mt-25 mb-25">
+    <mat-divider></mat-divider>
+  </div>
+</div>

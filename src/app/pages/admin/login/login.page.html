@@ -1,0 +1,31 @@
+<div class="haze__page-header haze__page-header--with-card-below">
+  <div class="haze__page-header--title">
+    <h2 class="mat-h2">Admin Login</h2>
+  </div>
+</div>
+
+<div class="haze__page-container haze__page-container--card-below">
+  <mat-card class="haze__card haze__card--fit-content mx-auto">
+    <form [formGroup]="loginForm" (submit)="onLogin()">
+      <div class="haze__flex-form haze__flex-form--column">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input type="text" matInput formControlName="email" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type="text" matInput formControlName="password" />
+        </mat-form-field>
+      </div>
+
+      <div class="haze__flex-actions mt-25">
+        <div>
+          <button mat-raised-button color="primary" class="haze__button">
+            <mat-icon>check_circle</mat-icon> Login
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

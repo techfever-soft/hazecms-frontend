@@ -1,0 +1,22 @@
+@mixin breadcrumb() {
+    .haze__breadcrumb {
+        ul {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            span {
+                display: flex;
+                align-items: center;
+                text-wrap: nowrap;
+                li {
+                    list-style: none;
+                    a.activeLink {
+                        font-weight: 900;
+                    }
+                }
+            }
+        }
+    }
+}

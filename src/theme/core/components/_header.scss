@@ -1,0 +1,30 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@include mat.core();
+
+@mixin header($theme) {
+    $color-config: mat.get-color-config($theme);
+    $typography: mat.define-typography-config();
+    $primary-palette: mat.get-color-from-palette($color-config, "primary");
+    $accent-palette: mat.get-color-from-palette($color-config, "accent");
+    $warn: mat.get-color-from-palette($color-config, "warn");
+    $background: mat.get-color-from-palette($color-config, "background");
+    $foreground: mat.get-color-from-palette($color-config, "foreground");
+
+    .haze__page-header {
+        padding: 25px 1em;
+        background: mat.get-color-from-palette($accent-palette);
+        &.haze__page-header--with-card-below {
+            padding-bottom: 50px;
+        }
+        .haze__page-header--title {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5 {
+                font-weight: 900;
+            }
+        }
+    }
+}

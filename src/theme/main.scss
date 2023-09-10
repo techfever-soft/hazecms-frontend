@@ -1,0 +1,9 @@
+@use "./core/index.scss" as core;
+@use "./overrides/index.scss" as overrides;
+@use "./plugins/index.scss" as plugins;
+
+@mixin main($theme) {
+    @include core.core($theme);
+    @include overrides.overrides($theme);
+    @include plugins.plugins();
+}
