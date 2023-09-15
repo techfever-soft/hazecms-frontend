@@ -3,6 +3,7 @@ import {
   HazeAppConfig,
   HazeAppConfigAdmin,
 } from 'src/app/core/models/interfaces/app.interface';
+import { Route, Router } from '@angular/router';
 
 import { BasicResponse } from 'src/app/core/models/interfaces/responses.interface';
 import { ClientApiService } from 'src/app/core/services/client-api.service';
@@ -22,80 +23,95 @@ export class InstallFinalizationComponent {
 
   public removeFrontendInstallCode = `
   /**
+   * frontend/src/pages/install
+   * 
+   * NOTE: Remove this folder for security reasons
+   */
+  . . .
+
+  /**
    * frontend/src/pages/pages-routing.module.ts
    * 
-   * NOTE: Remove these routes
+   * NOTE: Remove these routes and change the redirectTo
    */
   
+  // NOTE: Changing
   {
     path: '',
-    redirectTo: 'install',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
+  // NOTE: Removing
   {
     path: 'install',
     loadChildren: () =>
       import('./install/install.module').then((m) => m.InstallModule),
   },
 
-  /**
-   * frontend/src/pages/install
-   * 
-   * NOTE: Remove this folder
-   */
-
-  ...
   `;
 
   public removeBackendInstallCode = `
   /**
    * backend/routes.ts
    * 
-   * NOTE: Remove these routes
+   * NOTE: Remove these routes for security reasons
    */
 
-  router.use("/api/v1/install/mysql/", mySQLInstallRoutes);
-  router.use("/api/v1/install/mongodb/", mongoDBInstallRoutes);
-  router.use("/api/v1/install/firestore/", firestoreInstallRoutes);
+  router.use("/api/v1/install/%databaseType%/", %databaseType%InstallRoutes);
+  . . .
 
   /**
-   * backend/src/routes/mysql_install.routes.ts
+   * backend/src/routes/%databaseType%_install.routes.ts
    * 
-   * NOTE: Remove this file
+   * NOTE: Remove these files for security reasons
    */
+  . . .
 
-  router.post("/finalizeInstall", (req, res) => {
-    mySQLInstallController.finalizeInstall(req, res);
-  });
-
-  ...
+  /**
+   * backend/src/controllers/%databaseType%/install.controller.ts
+   * 
+   * NOTE: Remove these files for security reasons
+   */
+  . . .
   
   /**
-   * backend/src/routes/mongodb_install.routes.ts
+   * backend/src/services/%databaseType%/install.service.ts
    * 
-   * NOTE: Remove this file
+   * NOTE: Remove these files for security reasons
    */
+  . . .
 
-  router.post("/finalizeInstall", (req, res) => {
-    mongoDBInstallController.finalizeInstall(req, res);
-  });
-
-  ...
-  
-  /**
-   * backend/src/routes/firestore_install.routes.ts
-   * 
-   * NOTE: Remove this file
-   */
-
-  router.post("/finalizeInstall", (req, res) => {
-    firestoreInstallController.finalizeInstall(req, res);
-  });
-
-  ...
   `;
 
-  constructor(private clientApiService: ClientApiService) {}
+  constructor(
+    private clientApiService: ClientApiService,
+    private router: Router
+  ) {}
+
+  private replaceCurrentRouterConfig() {
+    return new Promise<void>((resolve, reject) => {
+      const routes = this.router.config.slice();
+
+      routes.forEach((route, index) => {
+        if (route.redirectTo?.includes('install')) {
+          routes.splice(index, 1);
+        }
+        if (route.path?.includes('install')) {
+          routes.splice(index, 1);
+        }
+      });
+
+      routes.unshift({
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      });
+
+      this.router.resetConfig(routes);
+
+      resolve();
+    });
+  }
 
   public onFinalizeInstallation() {
     this.isInstalling = true;
@@ -131,6 +147,13 @@ export class InstallFinalizationComponent {
         .then((res) => {
           console.log(res);
           this.activationStatus = res as BasicResponse;
+
+          this.replaceCurrentRouterConfig().then(() => {
+            setTimeout(() => {
+              this.router.navigate(['/home']);
+            }, 3000);
+          });
+
           this.isInstalling = false;
         })
         .catch((e) => {

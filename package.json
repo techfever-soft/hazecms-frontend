@@ -1,6 +1,7 @@
 {
   "name": "hazecms-client-frontend",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "A lightweight and easy to use Angular CMS",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -13,7 +14,7 @@
     "build:ssr": "ng run frontend:server",
     "prerender": "ng run frontend:prerender"
   },
-  "private": "false",
+  "private": false,
   "keywords": [
     "hazeCMS",
     "cms",
@@ -44,6 +45,7 @@
     "@nguniversal/express-engine": "^16.2.0",
     "@types/uuid": "^9.0.3",
     "express": "^4.15.2",
+    "fast-xml-parser": "^4.2.7",
     "highlightjs": "^9.16.2",
     "moment": "^2.29.4",
     "ngx-editor": "^16.0.1",

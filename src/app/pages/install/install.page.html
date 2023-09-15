@@ -6,7 +6,7 @@
       <img src="/assets/images/haze__brand.png" alt="Haze Logo" width="100" />
       <h2 class="mat-h2">Welcome on HazeCMS</h2>
       <p class="mat-p">Your CMS is not installed for now.</p>
-      <mat-chip>Alpha v0.0.1</mat-chip>
+      <mat-chip>Alpha v{{ hazeVersion }}</mat-chip>
 
       <div class="mt-25 mb-15">
         <button
@@ -51,14 +51,8 @@
           >
           Node.js <b>v18+</b>
           <pre><code lang="bash" [highlight]="'node --version'"></code></pre>
-          NPM <b>V9+</b>
+          NPM <b>v9+</b>
           <pre><code lang="bash" [highlight]="'npm --version'"></code></pre>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item class="haze__list-item">
-          <mat-icon matListItemIcon fontSet="material-symbols-outlined"
-            >package_2</mat-icon
-          >
           Angular CLI <b>v16+</b>
           <pre><code lang="bash" [highlight]="'ng --version'"></code></pre>
         </mat-list-item>
@@ -78,15 +72,14 @@
           A database server running with an empty database
           <ul>
             <li>
-              MySQL
-              <pre><code lang="bash" [highlight]="'mysql -u root -p'"></code></pre>
+              MySQL <b>v8+</b>
+              <pre><code lang="bash" [highlight]="'mysql --version\nmysql -u root -p'"></code></pre>
             </li>
             <li>
-              <span style="text-decoration: line-through">MongoDB</span> (Soon)
+              <span style="text-decoration: line-through">MongoDB</span> (TBA)
             </li>
             <li>
-              <span style="text-decoration: line-through">Firestore</span>
-              (Soon)
+              <span style="text-decoration: line-through">Firestore</span> (TBA)
             </li>
           </ul>
         </mat-list-item>
@@ -126,11 +119,13 @@
             matTooltip="Angular"
             src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
             matListItemIcon
-            alt=""
+            alt="Angular logo"
           />
           <p matListItemTitle class="mat-caption">Angular</p>
           <div matListItemMeta>
-            <button mat-button><mat-icon>open_in_new</mat-icon> Read</button>
+            <a mat-button target="_blank" href="https://angular.io/docs"
+              ><mat-icon>open_in_new</mat-icon> Read</a
+            >
           </div>
         </mat-list-item>
         <mat-list-item>
@@ -138,11 +133,13 @@
             matTooltip="Angular Material"
             src="https://material.angular.io/assets/img/angular-material-logo.svg"
             matListItemIcon
-            alt=""
+            alt="Material logo"
           />
           <p matListItemTitle class="mat-caption">Material</p>
           <div matListItemMeta>
-            <button mat-button><mat-icon>open_in_new</mat-icon> Read</button>
+            <a mat-button href="https://material.angular.io/" target="_blank"
+              ><mat-icon>open_in_new</mat-icon> Read</a
+            >
           </div>
         </mat-list-item>
         <mat-list-item>
@@ -150,11 +147,13 @@
             matTooltip="NgRX"
             src="https://ngrx.io/assets/images/badge.svg"
             matListItemIcon
-            alt=""
+            alt="NgRX logo"
           />
           <p matListItemTitle class="mat-caption">NgRX</p>
           <div matListItemMeta>
-            <button mat-button><mat-icon>open_in_new</mat-icon> Read</button>
+            <a mat-button href="https://ngrx.io/guide/store" target="_blank"
+              ><mat-icon>open_in_new</mat-icon> Read</a
+            >
           </div>
         </mat-list-item>
       </mat-list>

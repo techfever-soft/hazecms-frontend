@@ -1,0 +1,36 @@
+<div class="haze__page-header haze__page-header--with-card-below"></div>
+
+<div class="haze__page-container haze__page-container--card-below">
+  <mat-card class="haze__card haze__card--fit-content mx-auto">
+    <div class="text-center">
+      <h1 class="mat-h1">
+        Welcome to "<span [innerHTML]="pageTitle"></span>" page
+      </h1>
+
+      <p class="mat-p">
+        This is a page placeholder, replace it with your own content at :
+      </p>
+    </div>
+
+    <pre><code lang="bash" [highlight]="'cd ~/frontend/src/app/pages' + currentPath"></code></pre>
+
+    <div class="text-center">
+      <p class="mat-p">OR</p>
+
+      <p class="mat-caption">
+        Remove this page from router and files, and create it using dynamic page
+        builder
+      </p>
+
+      <a
+        target="_blank"
+        href="//hazecms.com"
+        mat-raised-button
+        class="haze__button"
+        color="accent"
+      >
+        <mat-icon>open_in_new</mat-icon> Read Documentation
+      </a>
+    </div>
+  </mat-card>
+</div>

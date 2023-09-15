@@ -1,0 +1,12 @@
+<div class="haze__page-header haze__page-header--with-card-below"></div>
+
+<div class="haze__page-container haze__page-container--card-below">
+  <mat-card class="haze__card haze__card--fit-content mx-auto">
+    <p class="mat-caption">{{ post.publishedAt | amTimeAgo}}</p>
+
+    <div class="text-center">
+      <h4 class="mat-h4">{{ post.name }}</h4>
+
+      <p class="mat-caption" [innerHTML]="postContent"></p></div
+  ></mat-card>
+</div>

@@ -1,3 +1,27 @@
+<div *ngIf="isUpdateReady" class="mb-15">
+  <app-alert
+    type="info"
+    title="An update is available"
+    icon="info"
+    subTitle="Check out the new release <b>v{{ latestVersion }}</b>"
+  >
+    <button
+      mat-raised-button
+      class="haze__button"
+      routerLink="/admin/settings/update/actions"
+    >
+      <mat-icon>schedule</mat-icon> Update now
+    </button>
+    <button
+      mat-button
+      class="haze__button"
+      routerLink="/admin/settings/update/changelogs"
+    >
+      <mat-icon>published_with_changes</mat-icon> See changelogs
+    </button>
+  </app-alert>
+</div>
+
 <div class="text-center">
   <button mat-button (click)="toggleNavlist()" class="haze__button w-100">
     <mat-icon>{{ navlistShowed ? "expand_less" : "expand_more" }}</mat-icon>
@@ -50,7 +74,7 @@
       class="haze__navlist-grid--item"
       routerLink="/admin/settings"
       routerLinkActive="active"
-      [disabled]="true"
+      [disabled]="false"
     >
       <mat-icon class="haze__icon-xl">settings</mat-icon>
       <div class="haze__navlist-grid--item__content">Settings</div>

@@ -2,6 +2,7 @@
   <div class="text-center">
     <mat-icon>{{ icon }}</mat-icon>
     <p class="mat-p">{{ title }}</p>
-    <p class="mat-caption text-muted">{{ subTitle }}</p>
+    <p class="mat-caption text-muted" [innerHTML]="subTitle"></p>
+    <ng-content></ng-content>
   </div>
 </div>

@@ -38,10 +38,6 @@ export class ClientApiService {
   }
 
   /**
-   * ANCHOR: Request types
-   */
-
-  /**
    * A basic post request sent to your backend server
    * @param endPoint string
    * @param data any
@@ -70,10 +66,12 @@ export class ClientApiService {
    * @param data any
    * @returns Promise<Object>
    */
-  public getRequest(endPoint: string, data: any) {
+  public getRequest(endPoint: string, params: any) {
     return new Promise((resolve, reject) => {
       this.http
-        .get(baseUrl + endPoint, data)
+        .get(baseUrl + endPoint, {
+          params: params,
+        })
         .pipe(
           catchError(async (errorResponse: HttpErrorResponse) => {
             const errorHandled = await this.handleError(errorResponse);

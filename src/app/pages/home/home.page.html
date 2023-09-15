@@ -1,1 +1,61 @@
-<p>home works!</p>
+<div id="myMenu">
+  <p class="mat-p">
+    This is an example dynamic menu located in<br />
+    <code>src/app/pages/home/home.page.html</code><br />
+    <code>src/app/pages/home/home.page.scss</code>
+  </p>
+  <ul>
+    <li>
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+    </li>
+    <li *ngFor="let page of availablePages">
+      <a [routerLink]="'/' + page.url" routerLinkActive="active"
+        >{{ page.name }}</a
+      >
+    </li>
+  </ul>
+</div>
+
+<div class="haze__page-header haze__page-header--hero">
+  <div class="haze__page-header--title">
+    <h1 class="mat-h1">Your website, your content</h1>
+  </div>
+
+  <div class="mb-25">
+    <button mat-raised-button class="haze__button">
+      <mat-icon>launch</mat-icon> C-T-A
+    </button>
+  </div>
+
+  <button mat-button class="haze__button">
+    <mat-icon>category</mat-icon> full width C-T-A
+  </button>
+</div>
+
+<div class="haze__page-container haze__page-container--card-below">
+  <mat-card class="haze__card haze__card--fit-content mx-auto">
+    <div class="text-center">
+      <p class="mat-p">
+        This is a page placeholder, replace the component at :
+      </p>
+      <pre><code lang="bash" [highlight]="'cd ~frontend/src/app/pages/home'"></code></pre>
+
+      <p class="mat-p">OR</p>
+
+      <p class="mat-caption">
+        Remove this page from router and files, and re-create it using dynamic
+        page builder
+      </p>
+
+      <a
+        target="_blank"
+        href="//hazecms.com"
+        mat-raised-button
+        class="haze__button"
+        color="accent"
+      >
+        <mat-icon>open_in_new</mat-icon> Read Documentation
+      </a>
+    </div>
+  </mat-card>
+</div>

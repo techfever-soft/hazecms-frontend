@@ -1,0 +1,15 @@
+#myMenu {
+    padding: 25px;
+    background: purple;
+    color: #fff;
+    ul {
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: lighter;
+            &.active {
+                font-weight: bolder;
+            }
+        }
+    }
+}

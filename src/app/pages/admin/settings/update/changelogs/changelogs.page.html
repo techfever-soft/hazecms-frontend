@@ -1,0 +1,35 @@
+<app-admin-drawer>
+  <div class="haze__page-header haze__page-header--with-card-below">
+    <div class="haze__page-header--title">
+      <h2 class="mat-h2">Changelogs</h2>
+    </div>
+
+    <app-breadcrumb
+      type="button"
+      [route]="changelogsPageRoute"
+    ></app-breadcrumb>
+  </div>
+
+  <div class="haze__page-container haze__page-container--card-below">
+    <mat-card class="haze__card">
+      <app-admin-navlist></app-admin-navlist>
+
+      <div *ngFor="let item of changelogList; let last = last">
+        <mat-list>
+          <p matListItemTitle>
+            <mat-chip>v{{ item.version }}</mat-chip> -
+            <b>{{ item.date * 1000 | amTimeAgo }}</b>
+          </p>
+
+          <div
+            [innerHTML]="item.description ? item.description : 'No description available'"
+          ></div>
+        </mat-list>
+
+        <div class="mt-25 mb-25" *ngIf="!last">
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</app-admin-drawer>

@@ -1,0 +1,23 @@
+<div class="haze__page-header haze__page-header--with-card-below"></div>
+
+<div class="haze__page-container haze__page-container--card-below">
+  <mat-card class="haze__card haze__card--fit-content mx-auto">
+    <div class="text-center">
+      <p class="mat-p">This is a sample blog</p>
+
+      <mat-nav-list>
+        <a
+          mat-list-item
+          *ngFor="let article of blogArticles"
+          routerLink="/blog/post/{{ article.slug }}"
+        >
+          <mat-icon matListItemIcon>newspaper</mat-icon>
+          <p class="mat-p">{{ article.name }}</p>
+          <p class="mat-caption">{{ article.publishedAt | amTimeAgo }}</p>
+        </a>
+      </mat-nav-list>
+
+      <div class="mt-25">{{ blogArticles.length }} article in total</div>
+    </div></mat-card
+  >
+</div>

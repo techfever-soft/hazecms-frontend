@@ -32,6 +32,31 @@ export class ServerApiService {
     });
   }
 
+  /**
+   * A basic get request sent to your backend server
+   * @param endPoint string
+   * @param data any
+   * @returns Promise<Object>
+   */
+  public getRequest(endPoint: string, params: any) {
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(baseUrl + endPoint, {
+          params: params,
+        })
+        .pipe(
+          catchError(async (errorResponse: HttpErrorResponse) => {
+            const errorHandled = await this.handleError(errorResponse);
+            reject(errorHandled);
+            throw new Error(errorResponse.message);
+          })
+        )
+        .subscribe((response) => {
+          resolve(response);
+        });
+    });
+  }
+
   public postRequest(endPoint: string, data: any) {
     return new Promise((resolve, reject) => {
       this.http
