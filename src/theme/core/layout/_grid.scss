@@ -1,0 +1,23 @@
+@mixin grid() {
+    .haze__grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        &.centerize {
+            justify-content: center;
+        }
+        .haze__grid--item {
+            margin: 10px;
+            .haze__card {
+                min-width: 150px;
+            }
+
+            .mat-icon.haze__grid--item__icon {
+                height: 35px;
+                width: 35px;
+                font-size: 35px;
+                margin: 0 auto;
+            }
+        }
+    }
+}

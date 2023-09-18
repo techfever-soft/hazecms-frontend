@@ -9,11 +9,11 @@ import { UpdateService } from 'src/app/core/services/update.service';
 export class InstallPage {
   public requirementsShowed: boolean = false;
   public resourcesShowed: boolean = false;
-  public hazeVersion: string = '';
+  public hazeVersionTag: string = '';
 
   constructor(private updateService: UpdateService) {
     this.updateService.getCurrentVersionTag().subscribe((versionTag) => {
-      this.hazeVersion = versionTag;
+      this.hazeVersionTag = versionTag;
     });
   }
 }

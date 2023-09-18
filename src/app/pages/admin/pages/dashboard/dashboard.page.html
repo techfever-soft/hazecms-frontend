@@ -1,0 +1,61 @@
+<app-admin-drawer>
+  <div class="haze__page-header haze__page-header--with-card-below">
+    <div class="haze__page-header--title">
+      <h1 class="mat-h1">Dashboard</h1>
+    </div>
+  </div>
+
+  <div class="haze__page-container haze__page-container--card-below">
+    <mat-card class="haze__card haze__card--fit-content mx-auto">
+      <app-admin-navlist></app-admin-navlist>
+
+      <section id="stats">
+        <div class="haze__grid centerize">
+          <div class="haze__grid--item">
+            <mat-card class="haze__card haze__card--fit-content text-center">
+              <mat-icon class="haze__grid--item__icon">account_circle</mat-icon>
+              <h1 class="mat-h1">--- users</h1>
+              <button mat-button [disabled]="true">
+                <mat-icon>groups</mat-icon> Manage users
+              </button>
+            </mat-card>
+          </div>
+          <div class="haze__grid--item">
+            <mat-card class="haze__card haze__card--fit-content text-center">
+              <mat-icon class="haze__grid--item__icon">description</mat-icon>
+              <h1 class="mat-h1">{{ pagesCount }} pages</h1>
+              <button mat-button routerLink="/admin/dynamic-pages/add">
+                <mat-icon>add</mat-icon> Create a page
+              </button>
+            </mat-card>
+          </div>
+          <div class="haze__grid--item">
+            <mat-card class="haze__card haze__card--fit-content text-center">
+              <mat-icon class="haze__grid--item__icon">newspaper</mat-icon>
+              <h1 class="mat-h1">{{ postsCount }} posts</h1>
+              <button mat-button routerLink="/admin/blog/write">
+                <mat-icon>add</mat-icon> Write a post
+              </button>
+            </mat-card>
+          </div>
+          <div class="haze__grid--item">
+            <mat-card class="haze__card haze__card--fit-content text-center">
+              <mat-icon class="haze__grid--item__icon">group</mat-icon>
+              <h1 class="mat-h1">--- visitors</h1>
+              <button mat-button [disabled]="true">
+                <mat-icon>query_stats</mat-icon> View stats
+              </button>
+            </mat-card>
+          </div>
+        </div>
+      </section>
+        <!-- TODO: FEED -->
+      <!-- <section id="feed">
+        <ngx-skeleton-loader></ngx-skeleton-loader>
+        <ngx-skeleton-loader></ngx-skeleton-loader>
+        <ngx-skeleton-loader></ngx-skeleton-loader>
+        <ngx-skeleton-loader></ngx-skeleton-loader>
+      </section> -->
+    </mat-card>
+  </div>
+</app-admin-drawer>

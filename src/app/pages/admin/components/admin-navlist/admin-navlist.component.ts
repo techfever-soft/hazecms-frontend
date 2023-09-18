@@ -10,7 +10,8 @@ import { UpdateService } from 'src/app/core/services/update.service';
 export class AdminNavlistComponent {
   public navlistShowed: boolean = false;
   public isUpdateReady: boolean = false;
-  public latestVersion!: string;
+  public latestVersionTag!: string;
+  public currentVersionTag!: string;
 
   constructor(
     private adminService: AdminService,
@@ -24,9 +25,13 @@ export class AdminNavlistComponent {
       this.isUpdateReady = ready;
     });
 
-    this.updateService.getLatestVersionTag().subscribe(latestVersion => {
-      this.latestVersion = latestVersion;
-    })
+    this.updateService.getLatestVersionTag().subscribe((latestVersionTag) => {
+      this.latestVersionTag = latestVersionTag;
+    });
+
+    this.updateService.getCurrentVersionTag().subscribe((currentVersionTag) => {
+      this.currentVersionTag = currentVersionTag;
+    });
   }
 
   public toggleNavlist() {

@@ -1,0 +1,60 @@
+<app-admin-drawer>
+  <div class="haze__page-header haze__page-header--with-card-below">
+    <div class="haze__page-header--title">
+      <h2 class="mat-h2">Update the app</h2>
+    </div>
+
+    <app-breadcrumb type="button" [route]="actionsPageRoute"></app-breadcrumb>
+  </div>
+
+  <div class="haze__page-container haze__page-container--card-below">
+    <mat-card class="haze__card haze__card--fit-content mx-auto">
+      <div *ngIf="currentVersionTag === lastVersionTag" class="text-center">
+        <app-alert
+          type="info"
+          icon="info"
+          title="Congrats !"
+          subTitle="You already have the latest version of HazeCMS ({{
+          currentVersionTag }})"
+        ></app-alert>
+      </div>
+      <div *ngIf="currentVersionTag !== lastVersionTag">
+        <p class="mat-p">
+          You are currently on version: <b>{{ currentVersionTag }}</b><br />
+          For updating to version : <b>{{ lastVersionTag }}</b>
+        </p>
+
+        <p class="mat-p">
+          By clicking on "update", your app content can be erased if you haven't
+          saved it before.
+        </p>
+
+        <div class="mt-25 mb-25 text-center">
+          <mat-chip> Update is disabled for Alpha version</mat-chip>
+        </div>
+
+        <div class="text-center">
+          <button
+            mat-raised-button
+            color="primary"
+            class="haze__button"
+            [disabled]="true"
+          >
+            <mat-icon>check_circle</mat-icon> Update the CMS
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-15 text-center">
+        <button
+          mat-raised-button
+          color="accent"
+          class="haze__button"
+          [disabled]="true"
+        >
+          <mat-icon>refresh</mat-icon> Check for updates
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</app-admin-drawer>

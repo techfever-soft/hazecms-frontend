@@ -1,0 +1,67 @@
+<app-admin-drawer>
+  <div class="haze__page-header haze__page-header--with-card-below">
+    <div class="haze__page-header--title">
+      <h2 class="mat-h2">Add a page <mat-chip>demo</mat-chip></h2>
+    </div>
+
+    <app-breadcrumb type="button" [route]="addPageRoute"></app-breadcrumb>
+  </div>
+
+  <div class="haze__page-container haze__page-container--card-below">
+    <mat-card class="haze__card">
+      <app-admin-navlist></app-admin-navlist>
+
+      <mat-tab-group #addPageTabgroup="matTabGroup" dynamicHeight>
+        <mat-tab>
+          <ng-template mat-tab-label
+            ><mat-icon>construction</mat-icon>&nbsp;Building</ng-template
+          >
+
+          <mat-drawer-container class="example-container" autosize>
+            <mat-drawer mode="push" [opened]="false" #builderDrawer="matDrawer">
+              <div class="text-center mb-25 mt-25">
+                <button mat-button (click)="builderDrawer.toggle()">
+                  <mat-icon
+                    >{{ builderDrawer.opened ? 'close' : 'menu' }}</mat-icon
+                  >
+                  Close menu
+                </button>
+              </div>
+
+              <app-page-element-list></app-page-element-list>
+            </mat-drawer>
+            <mat-drawer-content>
+              <mat-toolbar color="primary">
+                <button mat-icon-button (click)="builderDrawer.toggle()">
+                  <mat-icon
+                    >{{ builderDrawer.opened ? 'close' : 'menu_open'
+                    }}</mat-icon
+                  >
+                </button>
+                <p class="mat-p">Elements menu</p>
+              </mat-toolbar>
+
+              <div *ngIf="builderDrawer">
+                <app-add-page-builder
+                  [elementsDrawer]="builderDrawer"
+                  [tabGroup]="addPageTabgroup"
+                ></app-add-page-builder>
+              </div>
+            </mat-drawer-content>
+          </mat-drawer-container>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon>settings</mat-icon>&nbsp;Settings
+          </ng-template>
+
+          <div class="haze__main--content">
+            <app-add-page-settings
+              [tabGroup]="addPageTabgroup"
+            ></app-add-page-settings>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </div>
+</app-admin-drawer>

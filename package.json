@@ -1,6 +1,6 @@
 {
   "name": "hazecms-client-frontend",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A lightweight and easy to use Angular CMS",
   "scripts": {
     "ng": "ng",
@@ -8,6 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "serve": "ng serve --configuration=development",
     "build:prod": "ng build --configuration=production",
     "dev:ssr": "ng run frontend:serve-ssr",
     "serve:ssr": "node dist/frontend/server/main.js",

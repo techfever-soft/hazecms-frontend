@@ -1,9 +1,12 @@
-<div *ngIf="isUpdateReady" class="mb-15">
+<div
+  *ngIf="isUpdateReady && latestVersionTag !== currentVersionTag"
+  class="mb-15"
+>
   <app-alert
     type="info"
     title="An update is available"
     icon="info"
-    subTitle="Check out the new release <b>v{{ latestVersion }}</b>"
+    subTitle="Check out the new release <b>{{ latestVersionTag }}</b>"
   >
     <button
       mat-raised-button
@@ -43,7 +46,7 @@
     <a
       mat-list-item
       class="haze__navlist-grid--item"
-      routerLink="/admin/pages"
+      routerLink="/admin/dynamic-pages"
       routerLinkActive="active"
     >
       <mat-icon class="haze__icon-xl">construction</mat-icon>

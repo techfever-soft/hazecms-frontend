@@ -18,7 +18,7 @@ export class UpdateService {
 
   constructor(private http: HttpClient) {
     this.checkForUpdates();
-    this.currentVersionTag.next(packageJson.version);
+    this.currentVersionTag.next('v' + packageJson.version);
   }
 
   public getIsUpdateReady() {
@@ -44,7 +44,9 @@ export class UpdateService {
         const releases = response as any[];
         const lastRelease = releases[0];
 
-        if (lastRelease && lastRelease.tag_name !== packageJson.version) {
+        this.lastVersionTag.next(lastRelease.tag_name);
+
+        if (lastRelease && lastRelease.tag_name !== 'v' + packageJson.version) {
           console.log('update ready');
 
           this.lastVersionTag.next(lastRelease.tag_name);

@@ -1,0 +1,83 @@
+<div class="haze__main--content">
+  <div class="text-center mt-25">
+    <mat-button-toggle-group
+      value="full"
+      #previewMode="matButtonToggleGroup"
+      class="mb-25"
+      style="overflow: auto; min-width: 200px; max-width: 100%;"
+    >
+      <mat-button-toggle value="build" style="display: flex">
+        <div
+          style="
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+          "
+        >
+          <mat-icon>construction</mat-icon>
+          <span *ngIf="!isMobile">Build the page</span>
+        </div>
+      </mat-button-toggle>
+      <mat-button-toggle value="preview" style="display: flex"
+        ><div
+          style="
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+          "
+        >
+          <mat-icon>preview</mat-icon>
+          <span *ngIf="!isMobile"> Preview the page </span>
+        </div>
+      </mat-button-toggle>
+      <mat-button-toggle value="full" style="display: flex"
+        ><div
+          style="
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            align-items: center;
+          "
+        >
+          <mat-icon>construction</mat-icon>&nbsp;+&nbsp;<mat-icon>preview</mat-icon>
+          <span *ngIf="!isMobile"> Builder + Preview </span>
+        </div>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <!-- <div class="mb-25 haze__slide-toggle center">
+    <p class="mat-caption" style="margin-right: 10px">Shared view</p>
+    <mat-icon>vertical_split</mat-icon>
+    <mat-slide-toggle
+      color="primary"
+      #sharedMode="matSlideToggle"
+      checked
+    ></mat-slide-toggle>
+    <mat-icon>view_week</mat-icon>
+    <p class="mat-caption" style="margin-left: 10px">Full view</p>
+  </div> -->
+
+  <div *ngIf="previewMode.value == 'build'">
+    <app-page-builder [drawer]="elementsDrawer"></app-page-builder>
+  </div>
+
+  <div *ngIf="previewMode.value == 'preview'">
+    <app-page-element-preview></app-page-element-preview>
+  </div>
+
+  <div *ngIf="previewMode.value === 'full'">
+    <app-page-builder [drawer]="elementsDrawer"></app-page-builder>
+
+    <div class="mt-25 mb-25">
+      <mat-divider></mat-divider>
+    </div>
+
+    <app-page-element-preview></app-page-element-preview>
+  </div>
+</div>

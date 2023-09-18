@@ -11,21 +11,26 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+      import('./pages/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
   },
   {
-    path: 'pages',
+    path: 'dynamic-pages',
     loadChildren: () =>
-      import('./pages/pages.module').then((m) => m.PagesPageModule),
+      import('./pages/dynamic-pages/pages.module').then(
+        (m) => m.PagesPageModule
+      ),
   },
   {
     path: 'blog',
-    loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
+    loadChildren: () =>
+      import('./pages/blog/blog.module').then((m) => m.BlogModule),
   },
   {
     path: 'settings',
     loadChildren: () =>
-      import('./settings/settings.module').then((m) => m.SettingsModule),
+      import('./pages/settings/settings.module').then((m) => m.SettingsModule),
   },
   // TODO: For next release
   // {

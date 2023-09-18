@@ -12,8 +12,19 @@
       <a routerLink="/admin/dashboard" routerLinkActive="active" mat-list-item
         ><mat-icon matListItemIcon>dashboard</mat-icon> Dashboard</a
       >
-      <a routerLink="/admin/pages" routerLinkActive="active" mat-list-item
-        ><mat-icon matListItemIcon>construction</mat-icon> Pages builder</a
+      <a
+        routerLink="/admin/statistics"
+        routerLinkActive="active"
+        mat-list-item
+        [disabled]="true"
+        ><mat-icon matListItemIcon>analytics</mat-icon> Statistics</a
+      >
+      <a
+        routerLink="/admin/dynamic-pages"
+        routerLinkActive="active"
+        mat-list-item
+        ><mat-icon matListItemIcon>construction</mat-icon> Pages builder
+        <mat-chip>DEMO</mat-chip></a
       >
       <a routerLink="/admin/blog" routerLinkActive="active" mat-list-item
         ><mat-icon matListItemIcon>newspaper</mat-icon> Blog</a
@@ -24,6 +35,13 @@
         mat-list-item
         [disabled]="true"
         ><mat-icon matListItemIcon>groups</mat-icon> Users</a
+      >
+      <a
+        routerLink="/admin/users"
+        routerLinkActive="active"
+        mat-list-item
+        [disabled]="true"
+        ><mat-icon matListItemIcon>attach_file</mat-icon> Medias</a
       >
       <a
         routerLink="/admin/settings"

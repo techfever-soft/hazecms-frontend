@@ -2,7 +2,10 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { BasicResponse } from '../models/interfaces/responses.interface';
+import {
+  BasicResponse,
+  DataResponse,
+} from '../models/interfaces/responses.interface';
 
 const baseUrl = environment.dataAPIUrl;
 
