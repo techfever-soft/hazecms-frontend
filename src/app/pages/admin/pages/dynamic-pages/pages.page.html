@@ -9,23 +9,32 @@
     <mat-card class="haze__card">
       <app-admin-navlist></app-admin-navlist>
 
-      <button
-        mat-raised-button
-        routerLink="/admin/dynamic-pages/add"
-        color="primary"
-        class="haze__button"
-      >
-        <mat-icon>add</mat-icon> Add a page (july demo)
-      </button>
+      <div class="text-center">
+        <button
+          mat-raised-button
+          routerLink="/admin/dynamic-pages/add"
+          color="primary"
+          class="haze__button"
+        >
+          <mat-icon>add</mat-icon> Add a page (july demo)
+        </button>
+      </div>
 
       <mat-list>
         <mat-list-item *ngFor="let page of pageList">
           {{ page.name }}
           <div matListItemMeta>
+            <button mat-icon-button [routerLink]="'/' + page.url">
+              <mat-icon>visibility</mat-icon>
+            </button>
             <button mat-icon-button>
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="warn">
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="onDeletePage(page.id)"
+            >
               <mat-icon>delete</mat-icon>
             </button>
           </div>

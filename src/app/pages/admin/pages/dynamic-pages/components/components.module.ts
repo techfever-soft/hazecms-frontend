@@ -12,35 +12,37 @@ import { PageElementConfigComponent } from './page-element-config/page-element-c
 import { PageElementListComponent } from './page-element-list/page-element-list.component';
 import { PageElementPreviewComponent } from './page-element-preview/page-element-preview.component';
 import { PageNestedElementComponent } from './page-builder/page-nested-element/page-nested-element.component';
+import { SharedModule } from "../../../../../shared/shared.module";
 import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SwiperModule,
-    ElementsConfigModule,
-    ElementsPreviewModule,
-  ],
-  declarations: [
-    PageElementListComponent,
-    PageBuilderComponent,
-    BaseElementComponent,
-    ContainerElementComponent,
-    PageNestedElementComponent,
-    PageElementPreviewComponent,
-    PageElementConfigComponent,
-  ],
-  exports: [
-    PageElementListComponent,
-    PageBuilderComponent,
-    BaseElementComponent,
-    ContainerElementComponent,
-    PageNestedElementComponent,
-    PageElementPreviewComponent,
-    PageElementConfigComponent,
-  ],
+    declarations: [
+        PageElementListComponent,
+        PageBuilderComponent,
+        BaseElementComponent,
+        ContainerElementComponent,
+        PageNestedElementComponent,
+        PageElementPreviewComponent,
+        PageElementConfigComponent,
+    ],
+    exports: [
+        PageElementListComponent,
+        PageBuilderComponent,
+        BaseElementComponent,
+        ContainerElementComponent,
+        PageNestedElementComponent,
+        PageElementPreviewComponent,
+        PageElementConfigComponent,
+    ],
+    imports: [
+        CommonModule,
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SwiperModule,
+        ElementsConfigModule,
+        ElementsPreviewModule,
+        SharedModule
+    ]
 })
 export class ComponentsModule {}

@@ -2,10 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import {
-  BasicResponse,
-  DataResponse,
-} from '../models/interfaces/responses.interface';
+import { BasicResponse } from '../models/interfaces/responses.interface';
 
 const baseUrl = environment.dataAPIUrl;
 
@@ -16,9 +13,9 @@ export class ClientApiService {
   constructor(private http: HttpClient) {}
 
   /**
-   * Handle request errors
+   * Handles request errors
    * @param errorResponse
-   * @returns Promise<BasicResponse>
+   * @returns Promise
    */
   private handleError(errorResponse: HttpErrorResponse) {
     return new Promise((resolve) => {
@@ -44,7 +41,7 @@ export class ClientApiService {
    * A basic post request sent to your backend server
    * @param endPoint string
    * @param data any
-   * @returns Object
+   * @returns Promise
    */
   public postRequest(endPoint: string, data: any) {
     return new Promise((resolve, reject) => {
@@ -67,7 +64,7 @@ export class ClientApiService {
    * A basic get request sent to your backend server
    * @param endPoint string
    * @param data any
-   * @returns Promise<Object>
+   * @returns Promise
    */
   public getRequest(endPoint: string, params: any) {
     return new Promise((resolve, reject) => {
@@ -92,7 +89,7 @@ export class ClientApiService {
    * A basic delete request sent to your backend server
    * @param endPoint string
    * @param data any
-   * @returns Promise<Object>
+   * @returns Promise
    */
   public deleteRequest(endPoint: string) {
     return new Promise((resolve, reject) => {

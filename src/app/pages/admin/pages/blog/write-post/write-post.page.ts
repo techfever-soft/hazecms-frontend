@@ -61,10 +61,10 @@ export class WritePostPage {
     private matDialog: MatDialog
   ) {
     this.writePostForm = this.fb.group({
-      name: [''],
-      slug: ['', [Validators.pattern('[a-zA-Z0-9-]*')]],
-      categoryId: [''],
-      content: [''],
+      name: ['', Validators.required],
+      slug: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9-]*')]],
+      categoryId: ['', Validators.required],
+      content: ['', Validators.required],
       tags: [''],
       published: [false],
     });
@@ -141,7 +141,7 @@ export class WritePostPage {
     }
   }
 
-  add(event: MatChipInputEvent): void {
+  addKeyword(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
     if (value) {

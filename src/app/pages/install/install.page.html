@@ -18,15 +18,25 @@
           <mat-icon>rocket_launch</mat-icon> Ready for launching ?
         </button>
       </div>
-      <div class="mb-25">
+      <div class="mb-15 mt-15">
         <a
-          mat-raised-button
-          color="accent"
+          mat-button
           class="haze__button haze__button--column mx-auto"
           target="_blank"
           href="https://github.com/techfever-soft/hazecms-frontend/issues"
         >
           <mat-icon>star</mat-icon> Share your opinion
+        </a>
+      </div>
+      <div class="mb-50">
+        <a
+          mat-raised-button
+          color="accent"
+          class="haze__button haze__button--column mx-auto"
+          target="_blank"
+          href="https://docs.hazecms.com"
+        >
+          <mat-icon>library_books</mat-icon> Read documentation
         </a>
       </div>
     </div>
@@ -43,7 +53,7 @@
       {{ requirementsShowed ? 'Close' : 'See requirements' }}
     </button>
 
-    <div [hidden]="!requirementsShowed">
+    <div [@expandableItem]="requirementsShowed ? 'expanded' : 'collapsed'">
       <mat-list class="haze__list">
         <mat-list-item class="haze__list-item">
           <mat-icon matListItemIcon fontSet="material-symbols-outlined"
@@ -98,7 +108,7 @@
       {{ resourcesShowed ? 'Close' : 'See Resources' }}
     </button>
 
-    <div [hidden]="!resourcesShowed">
+    <div [@expandableItem]="resourcesShowed ? 'expanded' : 'collapsed'">
       <mat-list>
         <mat-list-item>
           <img

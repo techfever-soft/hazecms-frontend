@@ -13,27 +13,34 @@
     <mat-icon>admin_panel_settings</mat-icon> Go to admin
   </button>
 
-  <button mat-icon-button [matMenuTriggerFor]="accountMenu" [disabled]="true">
+  <button mat-icon-button [matMenuTriggerFor]="accountMenu">
     <mat-icon>account_circle</mat-icon>
   </button>
-  <mat-menu #accountMenu>
+  <mat-menu #accountMenu class="haze__menu">
     <div *ngIf="!currentUser">
       <div>
-        <button mat-button class="haze__button" routerLink="/login">
+        <button mat-button class="haze__button w-100" routerLink="/login">
           <mat-icon>login</mat-icon> Login
         </button>
       </div>
       <div>
-        <button mat-raised-button color="primary" class="haze__button">
+        <button
+          mat-raised-button
+          color="primary"
+          class="haze__button w-100"
+          routerLink="/register"
+        >
           <mat-icon>edit</mat-icon> Register
         </button>
       </div>
     </div>
     <div *ngIf="currentUser && currentUser.id">
-      <button mat-menu-item routerLink="/admin">
+      <button mat-menu-item routerLink="/admin" routerLinkActive="active">
         <mat-icon>admin_panel_settings</mat-icon> Admin panel
       </button>
-      <button mat-menu-item><mat-icon>face</mat-icon> My account</button>
+      <button mat-menu-item routerLink="/account" routerLinkActive="active">
+        <mat-icon>face</mat-icon> My account
+      </button>
       <button mat-menu-item (click)="onLogout()">
         <mat-icon color="warn">logout</mat-icon> Logout
       </button>

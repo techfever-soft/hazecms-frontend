@@ -1,0 +1,28 @@
+<div class="haze__page-header haze__page-header--with-card-below">
+  <div class="haze__page-header--title">
+    <h2 class="mat-h2">Register</h2>
+  </div>
+</div>
+
+<div class="haze__page-container haze__page-container--card-below">
+  <mat-card class="haze__card haze__card--fit-content mx-auto">
+    <form [formGroup]="registerForm" (submit)="onRegister()">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input type="text" matInput formControlName="username" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="text" matInput formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="text" matInput formControlName="password" />
+      </mat-form-field>
+
+      <button type="submit">Register</button>
+    </form>
+  </mat-card>
+</div>

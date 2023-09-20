@@ -1,0 +1,31 @@
+<app-admin-drawer>
+  <div class="haze__page-header haze__page-header--with-card-below">
+    <div class="haze__page-header--title">
+      <h1 class="mat-h1">General settings</h1>
+    </div>
+
+    <app-breadcrumb type="button" [route]="generalPageRoute"></app-breadcrumb>
+  </div>
+
+  <div class="haze__page-container haze__page-container--card-below">
+    <mat-card class="haze__card">
+      <app-admin-navlist></app-admin-navlist>
+
+      <form>
+        <mat-form-field>
+          <mat-label>App name</mat-label>
+          <input type="text" matInput />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Timezone</mat-label>
+          <input type="text" matInput />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Language</mat-label>
+          <input type="text" matInput />
+        </mat-form-field>
+      </form>
+    </mat-card></div
+></app-admin-drawer>

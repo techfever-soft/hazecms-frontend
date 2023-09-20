@@ -151,7 +151,7 @@ export class InstallFinalizationComponent {
           this.replaceCurrentRouterConfig().then(() => {
             setTimeout(() => {
               this.router.navigate(['/home']);
-            }, 3000);
+            }, 5000);
           });
 
           this.isInstalling = false;

@@ -3,6 +3,7 @@
 @use "./flash-message" as flash-message;
 @use "./alert" as alert;
 @use "./swiper" as swiper;
+@use "./page-builder" as page-builder;
 
 @mixin components($theme) {
     @include alert.alert($theme);
@@ -10,4 +11,5 @@
     @include breadcrumb.breadcrumb();
     @include flash-message.flash-message($theme);
     @include swiper.swiper($theme);
+    @include page-builder.page-builder();
 }

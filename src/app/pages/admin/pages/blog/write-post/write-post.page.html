@@ -108,7 +108,7 @@
                 [matChipInputFor]="chipGrid"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                 [matChipInputAddOnBlur]="true"
-                (matChipInputTokenEnd)="add($event)"
+                (matChipInputTokenEnd)="addKeyword($event)"
               />
             </mat-chip-grid>
           </mat-form-field>
@@ -131,6 +131,7 @@
             color="accent"
             class="haze__button mx-auto"
             type="submit"
+            [disabled]="writePostForm.invalid"
           >
             <mat-icon>check_circle</mat-icon> Save post
           </button>

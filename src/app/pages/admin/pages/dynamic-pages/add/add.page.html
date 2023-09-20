@@ -14,24 +14,35 @@
       <mat-tab-group #addPageTabgroup="matTabGroup" dynamicHeight>
         <mat-tab>
           <ng-template mat-tab-label
-            ><mat-icon>construction</mat-icon>&nbsp;Building</ng-template
+            ><mat-icon>construction</mat-icon>&nbsp;Build</ng-template
           >
 
-          <mat-drawer-container class="example-container" autosize>
-            <mat-drawer mode="push" [opened]="false" #builderDrawer="matDrawer">
+          <mat-drawer-container autosize>
+            <mat-drawer mode="side" [opened]="false" #builderDrawer="matDrawer">
               <div class="text-center mb-25 mt-25">
-                <button mat-button (click)="builderDrawer.toggle()">
+                <div>
+                  <button mat-icon-button (click)="builderDrawer.toggle()">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </div>
+                <!-- <button mat-raised-button (click)="builderDrawer.toggle()">
                   <mat-icon
                     >{{ builderDrawer.opened ? 'close' : 'menu' }}</mat-icon
                   >
                   Close menu
-                </button>
+                </button> -->
+                <mat-checkbox color="primary" #keepOpenedCheckbox
+                  >Keep opened</mat-checkbox
+                >
               </div>
 
-              <app-page-element-list></app-page-element-list>
+              <app-page-element-list
+                [drawer]="builderDrawer"
+                [keepOpened]="keepOpenedCheckbox.checked"
+              ></app-page-element-list>
             </mat-drawer>
             <mat-drawer-content>
-              <mat-toolbar color="primary">
+              <mat-toolbar color="accent">
                 <button mat-icon-button (click)="builderDrawer.toggle()">
                   <mat-icon
                     >{{ builderDrawer.opened ? 'close' : 'menu_open'

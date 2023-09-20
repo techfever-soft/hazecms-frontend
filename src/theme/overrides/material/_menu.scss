@@ -1,5 +1,26 @@
-@mixin menu() {
+@use "sass:map";
+@use "@angular/material" as mat;
+@include mat.core();
+
+@mixin menu($theme) {
+    $color-config: mat.get-color-config($theme);
+    $typography: mat.define-typography-config();
+    $primary-palette: mat.get-color-from-palette($color-config, "primary");
+    $accent-palette: mat.get-color-from-palette($color-config, "accent");
+    $warn: mat.get-color-from-palette($color-config, "warn");
+    $background: mat.get-color-from-palette($color-config, "background");
+    $foreground: mat.get-color-from-palette($color-config, "foreground");
+
     .haze__menu .mat-mdc-menu-content {
         padding: 0;
+        .mat-mdc-menu-item {
+            &.active {
+                background: mat.get-color-from-palette($primary-palette);
+                color: #fff;
+                mat-icon {
+                    color: #fff;
+                }
+            }
+        }
     }
 }

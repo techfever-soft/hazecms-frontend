@@ -7,20 +7,14 @@
   </div>
 </div>
 
-<div *ngIf="!addedElements.length" class="text-center mt-50">
-  <mat-icon>info</mat-icon>
-  <p class="mat-p">Preview is empty</p>
-  <p class="mat-caption text-muted text-muted">
-    Add your first element to get started
-  </p>
-</div>
+<app-alert
+  *ngIf="!addedElements.length"
+  icon="info"
+  title="The preview is empty"
+  subTitle="Add your first element to get started"
+></app-alert>
 
 <div *ngIf="addedElements.length">
-  <!-- <pre>
-  {{ addedElements | json }}
-</pre
-  > -->
-
   <div *ngFor="let element of addedElements">
     <span *ngIf="element.type === 'element'">
       <span *ngIf="element.name === 'headline'">

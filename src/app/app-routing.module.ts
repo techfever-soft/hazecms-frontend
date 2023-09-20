@@ -41,6 +41,20 @@ const routes: Routes = [
       import('./pages/auth/login/login.module').then((m) => m.LoginModule),
   },
   {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/auth/register/register.module').then(
+        (m) => m.RegisterModule
+      ),
+  },
+  {
+    path: 'account',
+    loadChildren: () =>
+      import('./pages/auth/account/account.module').then(
+        (m) => m.AccountModule
+      ),
+  },
+  {
     path: 'errors',
     loadChildren: () =>
       import('./pages/errors/errors.module').then((m) => m.ErrorsModule),

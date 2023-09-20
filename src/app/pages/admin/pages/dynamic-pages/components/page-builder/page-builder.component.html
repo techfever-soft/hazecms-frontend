@@ -61,16 +61,12 @@
   </div>
 </div>
 
-<div class="mb-15 mt-15">
-  <mat-divider></mat-divider>
-</div>
-
-<div *ngIf="!addedElements.length" class="text-center">
-  <mat-icon>error</mat-icon>
-  <p class="mat-p">You haven't added elements for now</p>
-  <p class="mat-caption text-muted text-muted">
-    Add your first element to get started
-  </p>
+<app-alert
+  *ngIf="!addedElements.length"
+  icon="info"
+  title="You haven't added elements for now"
+  subTitle="Add your first element to get started"
+>
   <button
     mat-raised-button
     color="accent"
@@ -85,7 +81,7 @@
         : "Open elements menu"
     }}
   </button>
-</div>
+</app-alert>
 
 <mat-accordion cdkDropList cdkDropListLockAxis="y" class="drag-boundary">
   <div
@@ -94,7 +90,9 @@
     cdkDragBoundary=".drag-boundary"
     (cdkDragDropped)="onElementDropped($event)"
   >
-    <div style="display: flex; align-items: center; justify-content: center">
+    <div
+      style="display: flex; align-items: center; justify-content: flex-start"
+    >
       <div style="display: flex; flex-direction: row">
         <mat-checkbox
           color="primary"

@@ -33,7 +33,7 @@ export class ChangelogsPage {
     private http: HttpClient
   ) {
     this.serverAPIService
-      .getRequest('version/getChangelogs', {})
+      .getRequest('version/getChangelog', {})
       .then((response) => {
         const result = response as DataResponse;
         const changelogUrl = result.data[0] as string;

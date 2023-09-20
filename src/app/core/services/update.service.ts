@@ -35,7 +35,7 @@ export class UpdateService {
 
   public getChangelogs() {}
 
-  private checkForUpdates() {
+  public checkForUpdates() {
     this.http
       .get(
         'https://api.github.com/repos/techfever-soft/hazecms-frontend/releases'

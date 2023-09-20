@@ -9,6 +9,12 @@
 
   <div class="haze__page-container haze__page-container--card-below">
     <mat-card class="haze__card haze__card--fit-content mx-auto">
+      <!-- <mat-slide-toggle color="primary">Auto update the CMS</mat-slide-toggle>
+      <br/>
+      <mat-slide-toggle color="primary"
+        >Save local code before update (stash)</mat-slide-toggle
+      > -->
+
       <div *ngIf="currentVersionTag === lastVersionTag" class="text-center">
         <app-alert
           type="info"
@@ -20,28 +26,36 @@
       </div>
       <div *ngIf="currentVersionTag !== lastVersionTag">
         <p class="mat-p">
-          You are currently on version: <b>{{ currentVersionTag }}</b><br />
-          For updating to version : <b>{{ lastVersionTag }}</b>
+          Current version : <b>{{ currentVersionTag }}</b><br />
+          Latest version : <b>{{ lastVersionTag }}</b>
         </p>
 
-        <p class="mat-p">
-          By clicking on "update", your app content can be erased if you haven't
-          saved it before.
+        <p class="mat-caption">
+          Make sure you saved your local code before updating !
         </p>
-
-        <div class="mt-25 mb-25 text-center">
-          <mat-chip> Update is disabled for Alpha version</mat-chip>
-        </div>
 
         <div class="text-center">
           <button
             mat-raised-button
             color="primary"
             class="haze__button"
-            [disabled]="true"
+            (click)="onUpdateCMS()"
+            [disabled]="isUpdating"
           >
-            <mat-icon>check_circle</mat-icon> Update the CMS
+            <mat-icon>check_circle</mat-icon> {{ isUpdating ? 'Update in
+            progress...' : 'Update now' }}
           </button>
+        </div>
+
+        <div class="text-center">
+          <a
+            mat-button
+            class="haze__button"
+            href="//docs.hazecms.com"
+            target="_blank"
+          >
+            <mat-icon>library_books</mat-icon> Read how to update
+          </a>
         </div>
       </div>
 
@@ -50,7 +64,7 @@
           mat-raised-button
           color="accent"
           class="haze__button"
-          [disabled]="true"
+          (click)="onCheckUpdates()"
         >
           <mat-icon>refresh</mat-icon> Check for updates
         </button>

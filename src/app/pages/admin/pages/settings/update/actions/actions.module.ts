@@ -2,6 +2,7 @@ import { ActionsPage } from './actions.page';
 import { ActionsRoutingModule } from './actions-routing.module';
 import { AdminComponentsModule } from 'src/app/pages/admin/components/admin-components.module';
 import { CommonModule } from '@angular/common';
+import { HighlightModule } from 'ngx-highlightjs';
 import { MaterialModule } from 'src/app/material.module';
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -14,6 +15,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     AdminComponentsModule,
     MaterialModule,
     SharedModule,
+    HighlightModule,
   ],
 })
 export class ActionsModule {}

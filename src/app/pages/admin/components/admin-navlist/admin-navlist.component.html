@@ -32,7 +32,7 @@
   </button>
 </div>
 
-<div [hidden]="!navlistShowed">
+<div  [@expandableItem]="navlistShowed ? 'expanded' : 'collapsed'">
   <mat-nav-list class="haze__navlist-grid haze__navlist-grid--centered">
     <a
       mat-list-item
@@ -42,6 +42,15 @@
     >
       <mat-icon class="haze__icon-xl">dashboard</mat-icon>
       <div class="haze__navlist-grid--item__content">Dashboard</div>
+    </a>
+    <a
+      mat-list-item
+      class="haze__navlist-grid--item"
+      routerLink="/admin/statistics"
+      routerLinkActive="active"
+    >
+      <mat-icon class="haze__icon-xl">analytics</mat-icon>
+      <div class="haze__navlist-grid--item__content">Statistics</div>
     </a>
     <a
       mat-list-item
@@ -67,10 +76,18 @@
       class="haze__navlist-grid--item"
       routerLink="/admin/users"
       routerLinkActive="active"
-      [disabled]="true"
     >
       <mat-icon class="haze__icon-xl">groups</mat-icon>
       <div class="haze__navlist-grid--item__content">Users</div>
+    </a>
+    <a
+      mat-list-item
+      class="haze__navlist-grid--item"
+      routerLink="/admin/medias"
+      routerLinkActive="active"
+    >
+      <mat-icon class="haze__icon-xl">attach_file</mat-icon>
+      <div class="haze__navlist-grid--item__content">Medias</div>
     </a>
     <a
       mat-list-item

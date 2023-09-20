@@ -2,7 +2,7 @@
 
 # 🚀 HazeCMS (front-end)
 
-Welcome to the HazeCMS Front-end repository. 
+Welcome to the HazeCMS Front-end repository.
 
 This repository contains the frontend code for a flexible and lightweight Content Management System.
 
@@ -10,13 +10,27 @@ Haze Frontend part was built using Angular 16, RxJS, NgRX and Angular Material.
 
 Haze Backend part was built with NodeJS.
 
-This project is still quite small and build by one developer. But I hope to make it grow with the help of the community. Don't hesitate to [give your opinion or contribute](https://github.com/techfever-soft/hazecms-frontend/issues) on all the functionnalities !
+This project is still quite small and build by one developer. But I hope to make it grow with the help of the community. Don't hesitate to [give your opinion or contribute](https://github.com/techfever-soft/hazecms-frontend/issues) !
 
-> ### If you want to clone the back-end server, please [go on this repository](https://github.com/techfever-soft/hazecms-backend)
+> #### If you want to clone the back-end server, please [go here](https://github.com/techfever-soft/hazecms-backend)
 
-> # [Join the newsletter and see what can be done with HazeCMS](https://hazecms.com)
+> ## [Read the documentation](https://docs.hazecms.com)
 
 ### Changelogs
+
+v0.0.4
+
+- [x] Added login/register for users with JWT
+- [x] Added admin dashboard items
+- [x] Patched update system
+- [x] Added external scripts part
+
+v0.0.3
+
+- [x] Patched documentation link
+- [x] Added admin dashboard items
+- [x] Added new items to admin settings
+- [x] Patched update system
 
 v0.0.2
 
@@ -107,11 +121,11 @@ Please refer to [USAGE.md](https://github.com/techfever-soft/hazecms-frontend/bl
 
 ## Installation
 
-Please refer to [INSTALL.md](https://github.com/techfever-soft/hazecms-frontend/blob/main/INSTALL.md)
+Please refer to the [documentation](https://docs.hazecms)
 
 ## Usage
 
-Please refer to the [documentation](https://hazecms/documentation)
+Please refer to the [documentation](https://docs.hazecms)
 
 ## Deployment
 

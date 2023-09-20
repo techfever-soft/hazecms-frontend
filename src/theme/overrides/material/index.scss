@@ -21,7 +21,7 @@
     @include toolbar.toolbar();
     @include typography.typography($theme);
     @include button.button();
-    @include menu.menu();
+    @include menu.menu($theme);
     @include stepper.stepper();
     @include slide-toggle.slide-toggle();
     @include tab-group.tab-group();

@@ -32,6 +32,23 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/settings/settings.module').then((m) => m.SettingsModule),
   },
+  {
+    path: 'statistics',
+    loadChildren: () =>
+      import('./pages/statistics/statistics.module').then(
+        (m) => m.StatisticsModule
+      ),
+  },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./pages/users/users.module').then((m) => m.UsersModule),
+  },
+  {
+    path: 'medias',
+    loadChildren: () =>
+      import('./pages/medias/medias.module').then((m) => m.MediasModule),
+  },
   // TODO: For next release
   // {
   //   path: 'login',

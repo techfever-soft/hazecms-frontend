@@ -12,6 +12,11 @@ const baseUrl = environment.coreAPIUrl;
 export class ServerApiService {
   constructor(private http: HttpClient) {}
 
+  /**
+   * Handles request errors
+   * @param errorResponse
+   * @returns Promise
+   */
   private handleError(errorResponse: HttpErrorResponse) {
     return new Promise((resolve) => {
       switch (errorResponse.status) {
@@ -32,12 +37,6 @@ export class ServerApiService {
     });
   }
 
-  /**
-   * A basic get request sent to your backend server
-   * @param endPoint string
-   * @param data any
-   * @returns Promise<Object>
-   */
   public getRequest(endPoint: string, params: any) {
     return new Promise((resolve, reject) => {
       this.http

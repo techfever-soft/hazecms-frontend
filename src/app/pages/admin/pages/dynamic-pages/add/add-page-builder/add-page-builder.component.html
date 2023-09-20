@@ -4,7 +4,7 @@
       value="full"
       #previewMode="matButtonToggleGroup"
       class="mb-25"
-      style="overflow: auto; min-width: 200px; max-width: 100%;"
+      style="overflow: auto; min-width: 200px; max-width: 100%"
     >
       <mat-button-toggle value="build" style="display: flex">
         <div
@@ -17,7 +17,9 @@
           "
         >
           <mat-icon>construction</mat-icon>
-          <span *ngIf="!isMobile">Build the page</span>
+          <span *ngIf="!isMobile"
+            ><p class="mat-caption" style="margin: 0">Builder</p></span
+          >
         </div>
       </mat-button-toggle>
       <mat-button-toggle value="preview" style="display: flex"
@@ -31,7 +33,9 @@
           "
         >
           <mat-icon>preview</mat-icon>
-          <span *ngIf="!isMobile"> Preview the page </span>
+          <span *ngIf="!isMobile">
+            <p class="mat-caption" style="margin: 0">Preview</p>
+          </span>
         </div>
       </mat-button-toggle>
       <mat-button-toggle value="full" style="display: flex"
@@ -39,13 +43,19 @@
           style="
             padding: 10px;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             text-align: center;
             align-items: center;
           "
         >
-          <mat-icon>construction</mat-icon>&nbsp;+&nbsp;<mat-icon>preview</mat-icon>
-          <span *ngIf="!isMobile"> Builder + Preview </span>
+          <div style="display: flex; align-items: center">
+            <mat-icon>construction</mat-icon>&nbsp;+&nbsp;<mat-icon
+              >preview</mat-icon
+            >
+          </div>
+          <span *ngIf="!isMobile">
+            <p class="mat-caption" style="margin: 0">Builder + Preview</p>
+          </span>
         </div>
       </mat-button-toggle>
     </mat-button-toggle-group>

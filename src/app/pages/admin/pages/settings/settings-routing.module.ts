@@ -9,21 +9,19 @@ const routes: Routes = [
     component: SettingsPage,
   },
   {
+    path: 'general',
+    loadChildren: () =>
+      import('./general/general.module').then((m) => m.GeneralModule),
+  },
+  {
+    path: 'security',
+    loadChildren: () =>
+      import('./security/security.module').then((m) => m.SecurityModule),
+  },
+  {
     path: 'update',
     loadChildren: () =>
       import('./update/update.module').then((m) => m.UpdateModule),
-  },
-  {
-    path: 'actions',
-    loadChildren: () =>
-      import('./update/actions/actions.module').then((m) => m.ActionsModule),
-  },
-  {
-    path: 'changelogs',
-    loadChildren: () =>
-      import('./update/changelogs/changelogs.module').then(
-        (m) => m.ChangelogsModule
-      ),
   },
 ];
 

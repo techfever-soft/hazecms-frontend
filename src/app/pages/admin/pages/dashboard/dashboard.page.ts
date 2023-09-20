@@ -10,6 +10,7 @@ import { DataResponse } from 'src/app/core/models/interfaces/responses.interface
 export class DashboardPage {
   public postsCount: number = 0;
   public pagesCount: number = 0;
+  public usersCount: number = 0;
 
   constructor(private clientApiService: ClientApiService) {
     this.clientApiService.getRequest('posts/getAll', {}).then((response) => {
@@ -24,6 +25,13 @@ export class DashboardPage {
       const pages = result.data as any[];
 
       this.pagesCount = pages.length;
+    });
+
+    this.clientApiService.getRequest('users/getAll', {}).then((response) => {
+      const result = response as DataResponse;
+      const users = result.data as any[];
+
+      this.usersCount = users.length;
     });
   }
 }

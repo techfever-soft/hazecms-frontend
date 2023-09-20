@@ -24,4 +24,13 @@ export class PagesPage implements OnInit {
       this.pageList = pages;
     });
   }
+
+  public onDeletePage(pageId: string | number) {
+    this.clientApiService
+      .deleteRequest('pages/deleteOne/' + pageId)
+      .then((response) => {
+        console.log(response);
+        this.loadPages();
+      });
+  }
 }

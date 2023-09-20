@@ -10,19 +10,30 @@
       <app-admin-navlist></app-admin-navlist>
 
       <mat-nav-list>
-        <a mat-list-item routerLink="/admin/settings/general" [disabled]="true">
+        <a mat-list-item routerLink="/admin/settings/general">
           <mat-icon matListItemIcon>settings</mat-icon> General
         </a>
-        <a mat-list-item routerLink="/admin/settings/customization" [disabled]="true">
+        <a mat-list-item routerLink="/admin/settings/license" [disabled]="true">
+          <mat-icon matListItemIcon>key</mat-icon> License
+        </a>
+        <a
+          mat-list-item
+          routerLink="/admin/settings/customization"
+          [disabled]="true"
+        >
           <mat-icon matListItemIcon>brush</mat-icon> Customization
         </a>
         <a mat-list-item routerLink="/admin/settings/plugins" [disabled]="true">
           <mat-icon matListItemIcon>extension</mat-icon> Plugins
         </a>
-        <a mat-list-item routerLink="/admin/settings/security" [disabled]="true">
+        <a mat-list-item routerLink="/admin/settings/security">
           <mat-icon matListItemIcon>security</mat-icon> Security
         </a>
-        <a mat-list-item routerLink="/admin/settings/developers" [disabled]="true">
+        <a
+          mat-list-item
+          routerLink="/admin/settings/developers"
+          [disabled]="true"
+        >
           <mat-icon matListItemIcon>code</mat-icon> Developers
         </a>
         <a mat-list-item routerLink="/admin/settings/update">
