@@ -2,19 +2,17 @@
 
 # 🚀 HazeCMS (front-end)
 
-Welcome to the HazeCMS Front-end repository.
-
 This repository contains the frontend code for a flexible and lightweight Content Management System.
 
-Haze Frontend part was built using Angular 16, RxJS, NgRX and Angular Material.
+Frontend part was built using Angular 16.
 
-Haze Backend part was built with NodeJS.
+Backend part was built with NodeJS.
 
-This project is still quite small and build by one developer. But I hope to make it grow with the help of the community. Don't hesitate to [give your opinion or contribute](https://github.com/techfever-soft/hazecms-frontend/issues) !
+This project is still quite small and build by one developer. But I hope to make it grow with the help of the community.
 
+> ## ⭐ [Review the CMS](https://forms.gle/Dic6dxEyeWc5iHJYA)
+> ## 📖 [Read the documentation](https://docs.hazecms.com)
 > #### If you want to clone the back-end server, please [go here](https://github.com/techfever-soft/hazecms-backend)
-
-> ## [Read the documentation](https://docs.hazecms.com)
 
 ### Changelogs
 
